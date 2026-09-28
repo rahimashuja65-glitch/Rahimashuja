@@ -1,0 +1,148 @@
+/* Features.css */
+
+.features-section {
+  /* Gym background image with slight dark overlay */
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+              url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.features-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-end;
+}
+
+/* Common Card Styles */
+.feature-card {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  /* Smooth transition ke liye */
+  transition: all 0.4s ease-in-out; 
+}
+
+/* Dark Card (Fitness & Wellness) */
+.dark-card {
+  color: white;
+  padding-bottom: 60px;
+  background-color: transparent; /* Default transparent */
+}
+
+/* Hover Effect for Dark Cards */
+.dark-card:hover {
+  background-color: rgba(11, 17, 32, 0.85); /* Dark blue background on hover */
+  transform: translateY(-5px); /* Thoda upar uthne ka effect */
+}
+
+.dark-card h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover par heading ka color orange */
+.dark-card:hover h2 {
+  color: #ff4500; 
+}
+
+.dark-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin: 0;
+  max-width: 350px;
+}
+
+/* Light Card (Atmosphere - White Box) */
+.light-card {
+  background-color: #ffffff;
+  color: #0b1120;
+  padding: 50px 40px;
+  margin-left: 20px; 
+}
+
+/* Hover Effect for Light Card */
+.light-card:hover {
+  background-color: #ff4500; /* Orange background on hover */
+  color: #ffffff; /* Text white ho jayega */
+  transform: translateY(-5px);
+}
+
+.light-card h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 0;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+/* Hover par light card ki heading ka color white */
+.light-card:hover h2 {
+  color: #ffffff;
+}
+
+.light-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover par light card ka paragraph bhi white */
+.light-card:hover p {
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .features-container {
+    flex-wrap: wrap;
+  }
+  .feature-card {
+    flex: 1 1 45%;
+  }
+  .light-card {
+    margin-left: 0;
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    flex-direction: column;
+    padding-top: 50px;
+  }
+  .features-container {
+    flex-direction: column;
+  }
+  .feature-card {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  .dark-card {
+    padding-bottom: 30px;
+  }
+  .light-card {
+    padding: 40px 20px;
+  }
+  .dark-card h2, .light-card h2 {
+    font-size: 2rem;
+  }
+}
