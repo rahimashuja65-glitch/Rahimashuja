@@ -5,8 +5,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 80px;
-  min-height: 100vh;
+  padding: 80px 80px 40px;    /* ✅ Neeche 40px kam */
+  min-height: auto;            /* ✅ 100vh hata diya */
   background: #1c1c1c;
   color: #fff;
   overflow: hidden;

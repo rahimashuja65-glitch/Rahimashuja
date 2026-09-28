@@ -1,0 +1,261 @@
+/* src/styles/FAQ.css */
+
+/* ---------- Section ---------- */
+.faq-section {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 100px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+}
+
+.faq-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;   /* Left bara, right chhota */
+  gap: 80px;
+  align-items: start;
+}
+
+/* ================= LEFT SIDE — FAQ ================= */
+.faq-left {
+  padding-top: 20px;
+}
+
+.faq-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin: 0 0 18px 0;
+}
+
+.faq-subtitle-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #8a8a8a;
+  margin: 0 0 40px 0;
+  max-width: 500px;
+}
+
+/* ---------- FAQ List ---------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- FAQ Item — Box Style ---------- */
+.faq-item {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.faq-item.open {
+  border-color: rgba(74, 222, 128, 0.5);
+  background: #202420;
+}
+
+/* Question Row */
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-q-text {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.faq-item.open .faq-q-text {
+  color: #4ade80;
+}
+
+/* Arrow Icon */
+.faq-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a7a7a;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+  color: #4ade80;
+}
+
+.faq-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Answer */
+.faq-answer {
+  overflow: hidden;
+}
+
+.faq-a-text {
+  padding: 0 26px 22px 26px;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: #b5b5b5;
+  margin: 0;
+}
+
+/* ================= RIGHT SIDE — Contact Form ================= */
+.faq-right {
+  background: #141414;
+  border-radius: 14px;
+  padding: 50px 40px;
+  border: 1px solid #232323;
+}
+
+.form-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 35px 0;
+  text-align: center;
+}
+
+/* ---------- Contact Form ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  background: #1c1c1c;
+  border: 1px solid #2f2f2f;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 0.98rem;
+  color: #fff;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: #6a6a6a;
+}
+
+.form-input:focus {
+  border-color: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+  font-family: inherit;
+}
+
+/* Submit Button */
+.form-submit {
+  width: 100%;
+  background: #4ade80;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.form-submit:hover {
+  background: #22c55e;
+  box-shadow: 0 0 25px rgba(74, 222, 128, 0.4);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 1000px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .faq-section {
+    padding: 70px 30px;
+  }
+
+  .faq-title {
+    font-size: 2rem;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .faq-right {
+    padding: 40px 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-section {
+    padding: 50px 20px;
+  }
+
+  .faq-title {
+    font-size: 1.6rem;
+  }
+
+  .faq-q-text {
+    font-size: 0.95rem;
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    gap: 14px;
+  }
+
+  .faq-a-text {
+    padding: 0 20px 18px 20px;
+    font-size: 0.9rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .form-input {
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+}
