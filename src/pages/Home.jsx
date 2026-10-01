@@ -5,6 +5,7 @@ import Contact from '../components/Contact'
 import  Schedule from '../components/Schedule';
 import Features from '../components/Features';
 import FAQ from '../components/FAQ';
+import Exercises from '../components/Exercises';
 function Home() {
   return (
     <div style={{ background: '#fefdfd', minHeight: '100vh' }}>
@@ -14,6 +15,7 @@ function Home() {
      <FAQ />
      <Newsletter />
      <Footer1 />
+     <Exercises />
 
            </div>
            
