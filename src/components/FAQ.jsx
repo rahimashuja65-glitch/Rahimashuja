@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "motion/react";
 import "./FAQ.css";
 
 const FAQ = () => {
-  // ✅ State — kaunsa FAQ open hai
+  // State — kaunsa FAQ open hai
   const [openIndex, setOpenIndex] = useState(1);   // dusra open (screenshot jaisa)
 
-  // ✅ State — form fields
+  //  State — form fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,8 +16,6 @@ const FAQ = () => {
   });
 
   // ✅ FAQ Data
- 
-// ✅ NAYE FAQ Questions — Bilkul Different
 const faqData = [
   {
     id: 1,

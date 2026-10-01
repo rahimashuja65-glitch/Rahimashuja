@@ -1,10 +1,8 @@
-/* src/components/Schedule.css */
-
 .schedule-section {
   background: #1c1c1c;
   color: #fff;
-  padding: 80px 60px 40px;    /* ✅ Neeche kam padding (40px) */
-  min-height: auto;            /* ✅ 100vh hata do */
+  padding: 100px 60px;
+  min-height: 100vh;
 }
 
 .schedule-container {

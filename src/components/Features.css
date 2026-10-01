@@ -1,9 +1,11 @@
-/* src/styles/Features.css */
+/* src/components/Features.css */
 
 /* ---------- Section ---------- */
 .features-section {
   background: #1c1c1c;
-  padding: 40px 60px 80px;      /* ✅ Upar kam, Schedule ke qareeb */
+  color: #fff;
+  padding: 80px 40px;
+
 }
 
 .features-container {
@@ -14,14 +16,14 @@
 /* ---------- 4 Boxes in ONE Row ---------- */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);   /* ✅ 4 columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
 /* ---------- Feature Box ---------- */
 .feature-box {
   position: relative;
-  padding: 32px 26px;
+  padding: 36px 28px;
   border: 1px solid rgba(74, 222, 128, 0.25);
   border-radius: 14px;
   background: rgba(74, 222, 128, 0.015);
@@ -30,10 +32,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 260px;
+  min-height: 320px;                /* ✅ Thoda zyada — icon ki jagah */
 }
 
-/* Glow inside */
+/* Subtle green glow inside (top-right) */
 .box-glow {
   position: absolute;
   top: -50%;
@@ -52,22 +54,91 @@
   z-index: 0;
 }
 
-.feature-box .feature-title,
-.feature-box .title-underline,
-.feature-box .feature-desc {
+/* Content upar glow ke */
+.feature-icon-wrapper,
+.feature-title,
+.title-underline,
+.feature-desc {
   position: relative;
   z-index: 1;
 }
 
+/* ============================================
+   ✅ ICON SECTION (NEW)
+   ============================================ */
+
+/* Icon wrapper — outer container */
+.feature-icon-wrapper {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+/* Glow circle behind icon — pulsing */
+.icon-glow {
+  position: absolute;
+  inset: -15px;                      /* Thoda bara circle */
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(74, 222, 128, 0.5) 0%,
+    rgba(74, 222, 128, 0.15) 40%,
+    transparent 70%
+  );
+  filter: blur(15px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Icon circle — green ring + dark bg */
+.feature-icon {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1.5px solid rgba(74, 222, 128, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ade80;                    /* Green icon color */
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover pe icon ka bg aur green */
+.feature-icon-wrapper:hover .feature-icon {
+  background: rgba(74, 222, 128, 0.18);
+  border-color: #4ade80;
+}
+
+/* SVG icon size */
+.feature-icon svg {
+  width: 32px;
+  height: 32px;
+  transition: filter 0.3s ease;
+}
+
+/* Hover pe icon glow tez */
+.feature-icon-wrapper:hover svg {
+  filter: drop-shadow(0 0 12px rgba(74, 222, 128, 0.9));
+}
+
 /* ---------- Title ---------- */
 .feature-title {
-  font-size: 1.35rem;           /* ✅ Chhota, 4 columns mein fit */
+  font-size: 1.35rem;
   font-weight: 800;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   margin: 0 0 14px 0;
   line-height: 1.2;
+  font-family: inherit;
 }
 
 /* Green underline */
@@ -80,32 +151,50 @@
 
 /* ---------- Description ---------- */
 .feature-desc {
-  font-size: 0.92rem;           /* ✅ Thoda chhota */
+  font-size: 0.92rem;
   line-height: 1.65;
   color: #9a9a9a;
   margin: 0;
+  font-family: inherit;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1200px) {
   .features-grid {
-    grid-template-columns: repeat(2, 1fr);   /* Tablet — 2x2 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
 @media (max-width: 700px) {
   .features-section {
-    padding: 40px 20px 60px;
+    padding: 50px 20px;
   }
 
   .features-grid {
-    grid-template-columns: 1fr;    /* Mobile — 1 column */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .feature-box {
-    padding: 28px 22px;
+    padding: 30px 24px;
     min-height: auto;
+  }
+
+  .feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 18px;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .feature-icon svg {
+    width: 26px;
+    height: 26px;
   }
 
   .feature-title {

@@ -1,5 +1,3 @@
-// src/components/Schedule.jsx
-
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import "./Schedule.css";
