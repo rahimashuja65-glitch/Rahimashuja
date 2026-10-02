@@ -184,7 +184,7 @@ const FAQ = () => {
                 ease: "easeInOut",
               }}
             >
-              <source src="/assets/FAQmp4.mp4" type="video/mp4" />
+              <source src="/assets/FAQ.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </motion.video>
 
