@@ -5,21 +5,22 @@
   background: #1c1c1c;
   color: #fff;
   padding: 100px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
 }
 
 .faq-container {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;     /* ✅ Left bara, right chhota */
+  gap: 80px;
   align-items: start;
 }
 
 /* ================= LEFT SIDE — FAQ ================= */
 .faq-left {
   padding-top: 20px;
-  width: 100%;
-  max-width: 800px;              /* ✅ Center mein fit ho */
 }
 
 .faq-title {
@@ -46,7 +47,6 @@
   gap: 14px;
 }
 
-/* ---------- FAQ Item — Box Style ---------- */
 .faq-item {
   background: #1e1e1e;
   border: 1px solid #2c2c2c;
@@ -64,7 +64,6 @@
   background: #202420;
 }
 
-/* Question Row */
 .faq-question {
   display: flex;
   align-items: center;
@@ -88,7 +87,6 @@
   color: #4ade80;
 }
 
-/* Arrow Icon */
 .faq-icon {
   width: 18px;
   height: 18px;
@@ -109,7 +107,6 @@
   height: 100%;
 }
 
-/* Answer */
 .faq-answer {
   overflow: hidden;
 }
@@ -122,14 +119,94 @@
   margin: 0;
 }
 
+/* ================= RIGHT SIDE — IMAGE ================= */
+.faq-right-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  min-height: 500px;
+}
+
+/* Rotating Glow */
+.faq-image-glow {
+  position: absolute;
+  width: 450px;
+  height: 550px;
+  border-radius: 30px;
+  background: conic-gradient(
+    from 0deg,
+    #4ade80,
+    transparent 40%,
+    #22c55e,
+    transparent 80%,
+    #4ade80
+  );
+  filter: blur(40px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* Image Wrapper */
+.faq-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 550px;
+  border-radius: 24px;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid rgba(74, 222, 128, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+/* Actual Image/Video */
+.faq-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Green Tint Overlay */
+.faq-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 222, 128, 0.12);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* ================= Responsive ================= */
 @media (max-width: 1000px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
   .faq-section {
     padding: 70px 30px;
   }
 
   .faq-title {
     font-size: 2rem;
+  }
+
+  .faq-right-image {
+    min-height: auto;
+  }
+
+  .faq-image-wrapper {
+    max-width: 100%;
+    height: 450px;
+  }
+
+  .faq-image-glow {
+    width: 100%;
+    height: 450px;
   }
 }
 
@@ -154,5 +231,13 @@
   .faq-a-text {
     padding: 0 20px 18px 20px;
     font-size: 0.9rem;
+  }
+
+  .faq-image-wrapper {
+    height: 350px;
+  }
+
+  .faq-image-glow {
+    height: 350px;
   }
 }
