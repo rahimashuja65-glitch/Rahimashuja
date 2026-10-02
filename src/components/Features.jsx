@@ -5,126 +5,62 @@ import { motion } from "motion/react";
 import "./Features.css";
 
 const Features = () => {
-  // ✅ 4 Features — Screenshot wale EXACT icons
   const featuresData = [
     {
       id: 1,
+      number: "01",
       title: "EXPERT STAFF",
       description:
         "Our team of fitness professionals is here to guide and support you every step of the way.",
       icon: (
-        // 💪 Muscle Arm Icon (bicep flex with head)
-        <svg
-          viewBox="0 0 64 64"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* Head */}
-          <circle cx="26" cy="12" r="5" />
-          {/* Body/Arm outline */}
-          <path d="M26 17 L26 28 L12 28 L8 34 L8 44 L14 44 L18 38 L24 38" />
-          <path d="M26 28 L38 28 L44 34 L44 44 L38 44" />
-          {/* Bicep curve */}
-          <path d="M38 28 Q46 20 52 22 Q54 24 54 28 L54 38" />
-          {/* Left bicep */}
-          <path d="M12 28 Q6 22 12 18 Q14 22 14 28" />
-          {/* Handshake/base */}
-          <path d="M22 44 L22 54 L38 54 L38 44" />
-          <path d="M28 44 L28 50 M32 44 L32 50" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 6a4 4 0 0 0-4 4v3a4 4 0 0 0 8 0v-3" />
+          <path d="M8 13v3a5 5 0 0 0 10 0" />
+          <path d="M4 10v5M2 12v1M20 10v5M22 12v1" />
+          <circle cx="12" cy="6" r="0.5" fill="currentColor" />
         </svg>
       ),
     },
     {
       id: 2,
+      number: "02",
       title: "COMMUNITY ATMOSPHERE",
       description:
         "Join a welcoming community of fitness enthusiasts who motivate and inspire each other.",
       icon: (
-        // ☁️ Cloud Icon (with wind lines)
-        <svg
-          viewBox="0 0 64 64"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* Cloud */}
-          <path d="M42 24 A8 8 0 0 1 50 32 A8 8 0 0 1 42 40 L20 40 A10 10 0 0 1 20 20 A10 10 0 0 1 30 22 A8 8 0 0 1 42 24 Z" />
-          {/* Wind lines */}
-          <line x1="14" y1="32" x2="22" y2="32" />
-          <line x1="10" y1="36" x2="20" y2="36" />
-          <line x1="14" y1="44" x2="24" y2="44" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+          <line x1="8" y1="14" x2="16" y2="14" />
+          <line x1="8" y1="17" x2="13" y2="17" />
         </svg>
       ),
     },
     {
       id: 3,
+      number: "03",
       title: "CONVENIENT HOURS",
       description:
         "Our team of fitness professionals is here to guide and support you every step of the way.",
       icon: (
-        // 🕐 Clock Icon (with dots around)
-        <svg
-          viewBox="0 0 64 64"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* Circle */}
-          <circle cx="32" cy="32" r="18" />
-          {/* Clock hands */}
-          <line x1="32" y1="32" x2="32" y2="22" />
-          <line x1="32" y1="32" x2="40" y2="36" />
-          {/* Dots around */}
-          <circle cx="32" cy="14" r="1.5" fill="currentColor" />
-          <circle cx="32" cy="50" r="1.5" fill="currentColor" />
-          <circle cx="14" cy="32" r="1.5" fill="currentColor" />
-          <circle cx="50" cy="32" r="1.5" fill="currentColor" />
-          <circle cx="19" cy="19" r="1.5" fill="currentColor" />
-          <circle cx="45" cy="45" r="1.5" fill="currentColor" />
-          <circle cx="45" cy="19" r="1.5" fill="currentColor" />
-          <circle cx="19" cy="45" r="1.5" fill="currentColor" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
         </svg>
       ),
     },
     {
       id: 4,
+      number: "04",
       title: "CLEAN & SAFE ENVIRONMENT",
       description:
         "Your health and safety are our top priorities. We maintain a clean and sanitized facility at all times.",
       icon: (
-        // 🌳 Trees Icon (with sun/circle)
-        <svg
-          viewBox="0 0 64 64"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* Center tree */}
-          <path d="M32 50 L32 26" />
-          <path d="M32 26 Q22 26 22 34 Q22 42 32 42" />
-          <path d="M32 26 Q42 26 42 34 Q42 42 32 42" />
-          <path d="M32 20 Q24 20 24 26 L40 26 Q40 20 32 20 Z" />
-          {/* Left tree */}
-          <path d="M14 50 L14 34" />
-          <path d="M14 34 Q6 34 6 40 Q6 46 14 46" />
-          <path d="M14 34 Q22 34 22 40 Q22 46 14 46" />
-          {/* Right tree */}
-          <path d="M50 50 L50 34" />
-          <path d="M50 34 Q42 34 42 40 Q42 46 50 46" />
-          <path d="M50 34 Q58 34 58 40 Q58 46 50 46" />
-          {/* Sun/bush circle */}
-          <circle cx="48" cy="14" r="4" />
-          {/* Ground */}
-          <line x1="4" y1="50" x2="60" y2="50" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22v-8" />
+          <path d="M12 14a5 5 0 0 0-5-5H3a5 5 0 0 0 5 5h4z" />
+          <path d="M12 14a5 5 0 0 1 5-5h4a5 5 0 0 1-5 5h-4z" />
+          <path d="M12 10V6a3 3 0 1 1 3 3" />
+          <circle cx="19" cy="5" r="1.5" />
         </svg>
       ),
     },
@@ -132,35 +68,53 @@ const Features = () => {
 
   return (
     <section className="features-section">
+
+      {/* 🌊 Background Decorative Circles */}
+      <div className="features-bg-deco">
+        <div className="bg-circle circle-1"></div>
+        <div className="bg-circle circle-2"></div>
+        <div className="bg-circle circle-3"></div>
+      </div>
+
       <div className="features-container">
 
-        {/* ✅ Title Section — KINETIX */}
+        {/* ✅ Title Section */}
         <div className="features-header">
-          <motion.h2
-            className="features-title"
-            initial={{ opacity: 0, y: 50 }}
+          <motion.p
+            className="features-subtitle"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.8 }}
+          >
+            WHAT WE OFFER
+          </motion.p>
+
+          <motion.h2
+            className="features-title"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.1 }}
           >
             WHY CHOOSE
           </motion.h2>
 
           <motion.h2
             className="features-title highlighted"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.25 }}
           >
             KINETIX?
           </motion.h2>
         </div>
 
-        {/* ✅ 4 Boxes in ONE Row */}
+        {/* ✅ 4 Feature Cards */}
         <div className="features-grid">
           {featuresData.map((feature, index) => (
-            <FeatureBox
+            <FeatureCard
               key={feature.id}
               feature={feature}
               index={index}
@@ -174,99 +128,123 @@ const Features = () => {
 };
 
 /* ============================================
-   Reusable Feature Box Component
+   Feature Card Component — WOW Version
    ============================================ */
-const FeatureBox = ({ feature, index }) => {
+const FeatureCard = ({ feature, index }) => {
   return (
     <motion.div
-      className="feature-box"
-      initial={{ opacity: 0, y: 60, scale: 0.95 }}
+      className="feature-card"
+      initial={{ opacity: 0, y: 80, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.2 }}
       transition={{
         duration: 0.9,
         delay: index * 0.15,
         ease: "easeOut",
       }}
       whileHover={{
-        borderColor: "rgba(74, 222, 128, 0.6)",
-        boxShadow: "0 0 40px rgba(74, 222, 128, 0.15)",
-        y: -8,
-        transition: { duration: 0.3 },
+        y: -15,
+        scale: 1.02,
+        transition: { duration: 0.4, ease: "easeOut" },
       }}
     >
-      <motion.div
-        className="box-glow"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: index * 0.4,
-        }}
-      />
+      {/* ✨ Animated Gradient Border */}
+      <div className="card-border-glow"></div>
 
+      {/* 💫 Shine Sweep Effect */}
+      <div className="card-shine"></div>
+
+      {/* 🎯 Number Badge */}
+      <motion.div
+        className="card-number"
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          duration: 0.6,
+          delay: index * 0.15 + 0.4,
+          ease: "easeOut",
+        }}
+      >
+        {feature.number}
+      </motion.div>
+
+      {/* 🌟 Icon with Rotating Rings */}
       <motion.div
         className="feature-icon-wrapper"
-        initial={{ opacity: 0, y: -30, scale: 0.5 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.3, rotate: -180 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{
-          duration: 0.8,
+          duration: 1,
           delay: index * 0.15 + 0.2,
           ease: "easeOut",
         }}
         whileHover={{
-          rotate: 12,
-          scale: 1.15,
-          transition: { duration: 0.4, ease: "easeInOut" },
+          rotate: 360,
+          transition: { duration: 0.8, ease: "easeInOut" },
         }}
       >
+        {/* Rotating Outer Ring */}
+        <motion.div
+          className="icon-ring-outer"
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear",
+            delay: index * 0.5,
+          }}
+        />
+
+        {/* Icon Glow */}
         <motion.div
           className="icon-glow"
           animate={{
-            scale: [1, 1.35, 1],
-            opacity: [0.4, 0.8, 0.4],
+            scale: [1, 1.4, 1],
+            opacity: [0.3, 0.8, 0.3],
           }}
           transition={{
-            duration: 2.5,
+            duration: 3,
             repeat: Infinity,
             ease: "easeInOut",
             delay: index * 0.4,
           }}
         />
+
+        {/* Icon Circle */}
         <div className="feature-icon">{feature.icon}</div>
       </motion.div>
 
+      {/* Title */}
       <motion.h3
         className="feature-title"
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{
           duration: 0.8,
-          delay: index * 0.15 + 0.3,
+          delay: index * 0.15 + 0.5,
           ease: "easeOut",
         }}
       >
         {feature.title}
       </motion.h3>
 
+      {/* Animated Underline */}
       <motion.div
         className="title-underline"
         initial={{ width: 0 }}
-        whileInView={{ width: "50px" }}
+        whileInView={{ width: "60px" }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{
-          duration: 0.7,
-          delay: index * 0.15 + 0.5,
+          duration: 0.8,
+          delay: index * 0.15 + 0.7,
           ease: "easeOut",
         }}
       />
 
+      {/* Description */}
       <motion.p
         className="feature-desc"
         initial={{ opacity: 0, y: 20 }}
@@ -274,11 +252,12 @@ const FeatureBox = ({ feature, index }) => {
         viewport={{ once: false, amount: 0.3 }}
         transition={{
           duration: 0.8,
-          delay: index * 0.15 + 0.6,
+          delay: index * 0.15 + 0.8,
         }}
       >
         {feature.description}
       </motion.p>
+
     </motion.div>
   );
 };
