@@ -5,77 +5,59 @@ import { motion, AnimatePresence } from "motion/react";
 import "./FAQ.css";
 
 const FAQ = () => {
-  // State — kaunsa FAQ open hai
-  const [openIndex, setOpenIndex] = useState(1);   // dusra open (screenshot jaisa)
-
-  //  State — form fields
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  // ✅ State — kaunsa FAQ open hai
+  const [openIndex, setOpenIndex] = useState(1);
 
   // ✅ FAQ Data
-const faqData = [
-  {
-    id: 1,
-    question: "How do I sign up for a membership?",
-    answer:
-      "Signing up is easy! You can register online through our website, visit our front desk in person, or call us at 0306-789-5432. All you need is a valid ID and a payment method. Your membership activates the same day!",
-  },
-  {
-    id: 2,
-    question: "Is there a joining or registration fee?",
-    answer:
-      "Yes, there's a one-time registration fee of $29 that covers your membership card, locker assignment, and a free orientation session with one of our trainers. No hidden charges — this is a one-time payment only.",
-  },
-  {
-    id: 3,
-    question: "What equipment do you have in the gym?",
-    answer:
-      "We have everything you need: premium cardio machines (treadmills, ellipticals, bikes), free weights up to 50kg, power racks, cable machines, functional training area, and a dedicated stretching zone. All equipment is sanitized daily.",
-  },
-  {
-    id: 4,
-    question: "Do you offer group fitness classes?",
-    answer:
-      "Absolutely! We offer 20+ group classes every week including Yoga, Zumba, CrossFit, HIIT, Spin, and Boxing. All classes are included in Pro and Premium memberships. Check our schedule page for timings and book your spot!",
-  },
-  {
-    id: 5,
-    question: "Can I cancel my membership anytime?",
-    answer:
-      "Yes, you can cancel anytime with no penalties. Just give us 30 days' notice in writing (email or at the front desk). Any prepaid fees for unused months will be refunded within 14 business days.",
-  },
-  {
-    id: 6,
-    question: "Do you have a nutritionist or diet plans?",
-    answer:
-      "Yes! We have certified nutritionists available for consultations. Premium members get one free diet plan consultation per month. Custom meal plans start at $19 for non-members. Book at the front desk.",
-  },
-];
+  const faqData = [
+    {
+      id: 1,
+      question: "How do I sign up for a membership?",
+      answer:
+        "Signing up is easy! You can register online through our website, visit our front desk in person, or call us at 0306-789-5432. All you need is a valid ID and a payment method. Your membership activates the same day!",
+    },
+    {
+      id: 2,
+      question: "Is there a joining or registration fee?",
+      answer:
+        "Yes, there's a one-time registration fee of $29 that covers your membership card, locker assignment, and a free orientation session with one of our trainers. No hidden charges — this is a one-time payment only.",
+    },
+    {
+      id: 3,
+      question: "What equipment do you have in the gym?",
+      answer:
+        "We have everything you need: premium cardio machines (treadmills, ellipticals, bikes), free weights up to 50kg, power racks, cable machines, functional training area, and a dedicated stretching zone. All equipment is sanitized daily.",
+    },
+    {
+      id: 4,
+      question: "Do you offer group fitness classes?",
+      answer:
+        "Absolutely! We offer 20+ group classes every week including Yoga, Zumba, CrossFit, HIIT, Spin, and Boxing. All classes are included in Pro and Premium memberships. Check our schedule page for timings and book your spot!",
+    },
+    {
+      id: 5,
+      question: "Can I cancel my membership anytime?",
+      answer:
+        "Yes, you can cancel anytime with no penalties. Just give us 30 days' notice in writing (email or at the front desk). Any prepaid fees for unused months will be refunded within 14 business days.",
+    },
+    {
+      id: 6,
+      question: "Do you have a nutritionist or diet plans?",
+      answer:
+        "Yes! We have certified nutritionists available for consultations. Premium members get one free diet plan consultation per month. Custom meal plans start at $19 for non-members. Book at the front desk.",
+    },
+  ];
+
   // ✅ Toggle FAQ
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
-  };
-
-  // ✅ Form input change
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  // ✅ Form submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thank you ${formData.name}! We'll get back to you soon.`);
-    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <section className="faq-section">
       <div className="faq-container">
 
-        {/* ============ LEFT SIDE — FAQ ============ */}
+        {/* ============ FAQ SECTION ============ */}
         <div className="faq-left">
 
           <motion.h2
@@ -164,71 +146,7 @@ const faqData = [
 
         </div>
 
-        {/* ============ RIGHT SIDE — Contact Form ============ */}
-        <motion.div
-          className="faq-right"
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-
-          <h2 className="form-title">
-            HOW CAN WE <br /> HELP YOU?
-          </h2>
-
-          <form className="contact-form" onSubmit={handleSubmit}>
-            {/* Full Name */}
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="form-input"
-              />
-            </div>
-
-            {/* Email */}
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="form-input"
-              />
-            </div>
-
-            {/* Message */}
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows="5"
-                className="form-input form-textarea"
-              ></textarea>
-            </div>
-
-            {/* Submit Button */}
-            <motion.button
-              type="submit"
-              className="form-submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Send Message
-            </motion.button>
-          </form>
-
-        </motion.div>
+      
 
       </div>
     </section>
