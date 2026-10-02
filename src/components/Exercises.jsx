@@ -42,27 +42,51 @@ const Exercises = () => {
       <div className="exercises-container">
 
         {/* ---------- Header ---------- */}
-        <div className="exercises-header">
-          <motion.p
-            className="exercises-subtitle"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            WHAT WE OFFER
-          </motion.p>
+        {/* ✅ Header Section */}
+<div className="exercises-header">
+  <motion.p
+    className="exercises-subtitle"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.8 }}
+  >
+    TRAIN LIKE A PRO
+  </motion.p>
 
-          <motion.h2
-            className="exercises-title"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 1, delay: 0.15 }}
-          >
-            EXPLORE OUR <br /> EXERCISES
-          </motion.h2>
-        </div>
+  <motion.h2
+    className="exercises-title"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.9, delay: 0.1 }}
+  >
+    EXPLORE OUR
+  </motion.h2>
+
+  <motion.h2
+    className="exercises-title highlighted"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.9, delay: 0.25 }}
+  >
+    EXERCISES
+  </motion.h2>
+
+  {/* ✅ NEW — Description Line */}
+  <motion.p
+    className="exercises-description"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.9, delay: 0.4 }}
+  >
+    From strength training to cardio and flexibility — discover a complete
+    range of workouts designed to push your limits and help you become the
+    strongest version of yourself.
+  </motion.p>
+</div>
 
         {/* ---------- 4 Cards Grid ---------- */}
         <div className="exercises-grid">
