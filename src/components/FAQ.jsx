@@ -57,7 +57,7 @@ const FAQ = () => {
     <section className="faq-section">
       <div className="faq-container">
 
-        {/* ============ FAQ SECTION ============ */}
+        {/* ============ LEFT SIDE — FAQ ============ */}
         <div className="faq-left">
 
           <motion.h2
@@ -99,14 +99,12 @@ const FAQ = () => {
                     ease: "easeOut",
                   }}
                 >
-                  {/* Question Row */}
                   <div
                     className="faq-question"
                     onClick={() => toggleFAQ(index)}
                   >
                     <h3 className="faq-q-text">{item.question}</h3>
 
-                    {/* Arrow Icon */}
                     <motion.div
                       className="faq-icon"
                       animate={{ rotate: isOpen ? 90 : 0 }}
@@ -125,7 +123,6 @@ const FAQ = () => {
                     </motion.div>
                   </div>
 
-                  {/* Answer */}
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
@@ -146,7 +143,53 @@ const FAQ = () => {
 
         </div>
 
-      
+        {/* ============ RIGHT SIDE — Image/Video ============ */}
+        <motion.div
+          className="faq-right-image"
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+
+          {/* Rotating Glow */}
+          <motion.div
+            className="faq-image-glow"
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+
+          {/* Image Wrapper */}
+          <motion.div
+            className="faq-image-wrapper"
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* ✅ Image */}
+            <motion.img
+              src="/assets/FAQ.jpg"
+              alt="Gym FAQ"
+              className="faq-image"
+              animate={{
+                y: [0, -10, 0],
+                scale: [1, 1.03, 1],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+
+            {/* Green Overlay */}
+            <div className="faq-image-overlay"></div>
+          </motion.div>
+
+        </motion.div>
 
       </div>
     </section>
