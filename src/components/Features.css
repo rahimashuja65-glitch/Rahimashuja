@@ -106,7 +106,18 @@
   position: relative;
   display: inline-block;
 }
+/* src/styles/Features.css */
 
+.features-description {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #9a9a9a;
+  max-width: 720px;
+  margin: 30px auto 0 auto;      /* ✅ Title ke baad gap */
+  text-align: center;
+  font-family: inherit;
+  font-weight: 400;
+}
 /* Glow behind "KINETIX?" */
 .features-title.highlighted::after {
   content: "";
