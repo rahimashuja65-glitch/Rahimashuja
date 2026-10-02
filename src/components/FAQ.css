@@ -4,7 +4,8 @@
 .faq-section {
   background: #1c1c1c;
   color: #fff;
-  padding: 100px 60px;
+  padding: 100px 5%;      /* ✅ Percentage use karo */
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
 }

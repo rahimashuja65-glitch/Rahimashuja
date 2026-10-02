@@ -87,7 +87,6 @@ const Features = () => {
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            WHAT WE OFFER
           </motion.p>
 
           <motion.h2
