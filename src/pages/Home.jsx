@@ -10,13 +10,13 @@ function Home() {
   return (
     <div style={{ background: '#fefdfd', minHeight: '100vh' }}>
     <Schedule />
-     <Features />
+     
      <Contact />
      <FAQ />
      <Newsletter />
      <Footer1 />
      <Exercises />
-
+<Features />
            </div>
            
   );

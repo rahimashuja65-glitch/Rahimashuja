@@ -1,11 +1,14 @@
 /* src/components/Features.css */
 
-/* ---------- Section ---------- */
+/* ============================================
+   SECTION
+   ============================================ */
 .features-section {
   background: #1c1c1c;
   color: #fff;
-  padding: 80px 40px;
-
+  padding: 100px 40px 80px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
 }
 
 .features-container {
@@ -13,29 +16,59 @@
   margin: 0 auto;
 }
 
-/* ---------- 4 Boxes in ONE Row ---------- */
+/* ============================================
+   TITLE
+   ============================================ */
+.features-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.features-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.features-title.highlighted {
+  color: #4ade80;
+}
+
+/* ============================================
+   4 BOXES GRID
+   ============================================ */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 30px;
+  align-items: start;
 }
 
-/* ---------- Feature Box ---------- */
+/* ============================================
+   FEATURE BOX
+   ============================================ */
 .feature-box {
   position: relative;
-  padding: 36px 28px;
+  padding: 60px 22px 36px;
   border: 1px solid rgba(74, 222, 128, 0.25);
   border-radius: 14px;
   background: rgba(74, 222, 128, 0.015);
-  overflow: hidden;
+  overflow: visible;
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 320px;                /* ✅ Thoda zyada — icon ki jagah */
+  align-items: center;
+  text-align: center;
+  min-height: 380px;
+  margin-top: 40px;
 }
 
-/* Subtle green glow inside (top-right) */
 .box-glow {
   position: absolute;
   top: -50%;
@@ -54,7 +87,6 @@
   z-index: 0;
 }
 
-/* Content upar glow ke */
 .feature-icon-wrapper,
 .feature-title,
 .title-underline,
@@ -64,25 +96,28 @@
 }
 
 /* ============================================
-   ✅ ICON SECTION (NEW)
+   🔥 ICON — FIXED SIZE FORCE
    ============================================ */
-
-/* Icon wrapper — outer container */
 .feature-icon-wrapper {
-  position: relative;
-  width: 70px;
-  height: 70px;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
   cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Glow circle behind icon — pulsing */
 .icon-glow {
   position: absolute;
-  inset: -15px;                      /* Thoda bara circle */
+  inset: -15px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -95,113 +130,155 @@
   z-index: 0;
 }
 
-/* Icon circle — green ring + dark bg */
+/* 🔥 ICON CIRCLE — Force */
 .feature-icon {
   position: relative;
   z-index: 1;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: rgba(74, 222, 128, 0.08);
-  border: 1.5px solid rgba(74, 222, 128, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #4ade80;                    /* Green icon color */
-  transition: background 0.3s ease, border-color 0.3s ease;
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  min-width: 100px !important;
+  min-height: 100px !important;
+  border-radius: 50% !important;
+  background: #1c1c1c !important;
+  border: 2px solid #4ade80 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #4ade80 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 0 30px rgba(74, 222, 128, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover pe icon ka bg aur green */
-.feature-icon-wrapper:hover .feature-icon {
-  background: rgba(74, 222, 128, 0.18);
-  border-color: #4ade80;
-}
-
-/* SVG icon size */
+/* 🔥 SVG — FORCE SMALL SIZE */
 .feature-icon svg {
-  width: 32px;
-  height: 32px;
+  width: 55px !important;
+  height: 55px !important;
+  max-width: 55px !important;
+  max-height: 55px !important;
+  min-width: 55px !important;
+  min-height: 55px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
   transition: filter 0.3s ease;
 }
 
-/* Hover pe icon glow tez */
+.feature-icon-wrapper:hover .feature-icon {
+  background: #252525 !important;
+  box-shadow: 0 0 50px rgba(74, 222, 128, 0.6);
+}
+
 .feature-icon-wrapper:hover svg {
   filter: drop-shadow(0 0 12px rgba(74, 222, 128, 0.9));
 }
 
-/* ---------- Title ---------- */
+/* ============================================
+   TITLE
+   ============================================ */
 .feature-title {
-  font-size: 1.35rem;
+  font-size: 1rem;
   font-weight: 800;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin: 0 0 14px 0;
-  line-height: 1.2;
-  font-family: inherit;
+  letter-spacing: 0.8px;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  min-height: 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
 }
 
-/* Green underline */
 .title-underline {
   height: 2px;
   background: #4ade80;
   border-radius: 2px;
-  margin-bottom: 18px;
+  margin: 0 auto 16px;
+  display: block;
+  width: 50px;
 }
 
-/* ---------- Description ---------- */
+/* ============================================
+   DESCRIPTION
+   ============================================ */
 .feature-desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.6;
   color: #9a9a9a;
   margin: 0;
-  font-family: inherit;
+  max-width: 100%;
+  text-align: center;
 }
 
-/* ---------- Responsive ---------- */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 1200px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 40px;
+  }
+
+  .features-title {
+    font-size: 3rem;
+  }
+
+  .features-header {
+    margin-bottom: 80px;
   }
 }
 
 @media (max-width: 700px) {
   .features-section {
-    padding: 50px 20px;
+    padding: 80px 20px 50px;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 60px;
+  }
+
+  .features-title {
+    font-size: 2rem;
+    letter-spacing: -1px;
+  }
+
+  .features-header {
+    margin-bottom: 60px;
   }
 
   .feature-box {
-    padding: 30px 24px;
+    padding: 50px 20px 30px;
+    margin-top: 35px;
     min-height: auto;
   }
 
   .feature-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 18px;
+    width: 85px !important;
+    height: 85px !important;
+    top: -42px;
   }
 
   .feature-icon {
-    width: 60px;
-    height: 60px;
+    width: 85px !important;
+    height: 85px !important;
   }
 
   .feature-icon svg {
-    width: 26px;
-    height: 26px;
+    width: 45px !important;
+    height: 45px !important;
   }
 
   .feature-title {
-    font-size: 1.15rem;
+    font-size: 0.9rem;
   }
 
   .feature-desc {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 }

@@ -5,89 +5,126 @@ import { motion } from "motion/react";
 import "./Features.css";
 
 const Features = () => {
-  // ✅ 4 Features — Icons ke saath
+  // ✅ 4 Features — Screenshot wale EXACT icons
   const featuresData = [
     {
       id: 1,
-      title: "FITNESS",
+      title: "EXPERT STAFF",
       description:
-        "Achieve your fitness goals with premium strength and cardio equipment, designed for every workout style.",
+        "Our team of fitness professionals is here to guide and support you every step of the way.",
       icon: (
-        // Dumbbell Icon
+        // 💪 Muscle Arm Icon (bicep flex with head)
         <svg
-          viewBox="0 0 24 24"
+          viewBox="0 0 64 64"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.8"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M6.5 6.5h11v11h-11z" />
-          <path d="M3 9v6M21 9v6M5 7.5v9M19 7.5v9" />
-          <line x1="9" y1="12" x2="15" y2="12" />
+          {/* Head */}
+          <circle cx="26" cy="12" r="5" />
+          {/* Body/Arm outline */}
+          <path d="M26 17 L26 28 L12 28 L8 34 L8 44 L14 44 L18 38 L24 38" />
+          <path d="M26 28 L38 28 L44 34 L44 44 L38 44" />
+          {/* Bicep curve */}
+          <path d="M38 28 Q46 20 52 22 Q54 24 54 28 L54 38" />
+          {/* Left bicep */}
+          <path d="M12 28 Q6 22 12 18 Q14 22 14 28" />
+          {/* Handshake/base */}
+          <path d="M22 44 L22 54 L38 54 L38 44" />
+          <path d="M28 44 L28 50 M32 44 L32 50" />
         </svg>
       ),
     },
     {
       id: 2,
-      title: "STRENGTH",
+      title: "COMMUNITY ATMOSPHERE",
       description:
-        "Build muscle and power with our heavy-duty free weights, power racks, and expert strength coaching.",
+        "Join a welcoming community of fitness enthusiasts who motivate and inspire each other.",
       icon: (
-        // Flexed Arm / Muscle Icon
+        // ☁️ Cloud Icon (with wind lines)
         <svg
-          viewBox="0 0 24 24"
+          viewBox="0 0 64 64"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.8"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M12 6a4 4 0 0 0-4 4v3a4 4 0 0 0 8 0v-3" />
-          <path d="M8 13v3a5 5 0 0 0 10 0" />
-          <path d="M4 10v5M2 12v1M20 10v5M22 12v1" />
-          <circle cx="12" cy="6" r="0.5" fill="currentColor" />
+          {/* Cloud */}
+          <path d="M42 24 A8 8 0 0 1 50 32 A8 8 0 0 1 42 40 L20 40 A10 10 0 0 1 20 20 A10 10 0 0 1 30 22 A8 8 0 0 1 42 24 Z" />
+          {/* Wind lines */}
+          <line x1="14" y1="32" x2="22" y2="32" />
+          <line x1="10" y1="36" x2="20" y2="36" />
+          <line x1="14" y1="44" x2="24" y2="44" />
         </svg>
       ),
     },
     {
       id: 3,
-      title: "ATMOSPHERE",
+      title: "CONVENIENT HOURS",
       description:
-        "Stay motivated in a vibrant, inspiring atmosphere with stunning aesthetics designed to elevate your experience.",
+        "Our team of fitness professionals is here to guide and support you every step of the way.",
       icon: (
-        // Sparkles Icon
+        // 🕐 Clock Icon (with dots around)
         <svg
-          viewBox="0 0 24 24"
+          viewBox="0 0 64 64"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.8"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M12 3l1.9 5.8L19 11l-5.1 2.2L12 19l-1.9-5.8L5 11l5.1-2.2z" />
-          <path d="M19 4l.5 1.5L21 6l-1.5.5L19 8l-.5-1.5L17 6l1.5-.5z" />
-          <path d="M5 18l.4 1.2L6.5 20l-1.1.8L5 22l-.4-1.2L3.5 20l1.1-.8z" />
+          {/* Circle */}
+          <circle cx="32" cy="32" r="18" />
+          {/* Clock hands */}
+          <line x1="32" y1="32" x2="32" y2="22" />
+          <line x1="32" y1="32" x2="40" y2="36" />
+          {/* Dots around */}
+          <circle cx="32" cy="14" r="1.5" fill="currentColor" />
+          <circle cx="32" cy="50" r="1.5" fill="currentColor" />
+          <circle cx="14" cy="32" r="1.5" fill="currentColor" />
+          <circle cx="50" cy="32" r="1.5" fill="currentColor" />
+          <circle cx="19" cy="19" r="1.5" fill="currentColor" />
+          <circle cx="45" cy="45" r="1.5" fill="currentColor" />
+          <circle cx="45" cy="19" r="1.5" fill="currentColor" />
+          <circle cx="19" cy="45" r="1.5" fill="currentColor" />
         </svg>
       ),
     },
     {
       id: 4,
-      title: "SUPPORT",
+      title: "CLEAN & SAFE ENVIRONMENT",
       description:
-        "Get expert guidance anytime with our dedicated team of trainers and support staff ready to help you.",
+        "Your health and safety are our top priorities. We maintain a clean and sanitized facility at all times.",
       icon: (
-        // Headset / Support Icon
+        // 🌳 Trees Icon (with sun/circle)
         <svg
-          viewBox="0 0 24 24"
+          viewBox="0 0 64 64"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.8"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+          {/* Center tree */}
+          <path d="M32 50 L32 26" />
+          <path d="M32 26 Q22 26 22 34 Q22 42 32 42" />
+          <path d="M32 26 Q42 26 42 34 Q42 42 32 42" />
+          <path d="M32 20 Q24 20 24 26 L40 26 Q40 20 32 20 Z" />
+          {/* Left tree */}
+          <path d="M14 50 L14 34" />
+          <path d="M14 34 Q6 34 6 40 Q6 46 14 46" />
+          <path d="M14 34 Q22 34 22 40 Q22 46 14 46" />
+          {/* Right tree */}
+          <path d="M50 50 L50 34" />
+          <path d="M50 34 Q42 34 42 40 Q42 46 50 46" />
+          <path d="M50 34 Q58 34 58 40 Q58 46 50 46" />
+          {/* Sun/bush circle */}
+          <circle cx="48" cy="14" r="4" />
+          {/* Ground */}
+          <line x1="4" y1="50" x2="60" y2="50" />
         </svg>
       ),
     },
@@ -96,6 +133,29 @@ const Features = () => {
   return (
     <section className="features-section">
       <div className="features-container">
+
+        {/* ✅ Title Section — KINETIX */}
+        <div className="features-header">
+          <motion.h2
+            className="features-title"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            WHY CHOOSE
+          </motion.h2>
+
+          <motion.h2
+            className="features-title highlighted"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          >
+            KINETIX?
+          </motion.h2>
+        </div>
 
         {/* ✅ 4 Boxes in ONE Row */}
         <div className="features-grid">
@@ -135,7 +195,6 @@ const FeatureBox = ({ feature, index }) => {
         transition: { duration: 0.3 },
       }}
     >
-      {/* Pulse glow inside box */}
       <motion.div
         className="box-glow"
         animate={{
@@ -150,12 +209,8 @@ const FeatureBox = ({ feature, index }) => {
         }}
       />
 
-      {/* ============================================
-          ✅ NEW — Icon with Multiple Animations
-          ============================================ */}
       <motion.div
         className="feature-icon-wrapper"
-        // 1️⃣ Entrance animation (from top)
         initial={{ opacity: 0, y: -30, scale: 0.5 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.3 }}
@@ -164,14 +219,12 @@ const FeatureBox = ({ feature, index }) => {
           delay: index * 0.15 + 0.2,
           ease: "easeOut",
         }}
-        // 2️⃣ Hover — rotate + scale
         whileHover={{
           rotate: 12,
           scale: 1.15,
           transition: { duration: 0.4, ease: "easeInOut" },
         }}
       >
-        {/* Pulsing glow behind icon — infinite */}
         <motion.div
           className="icon-glow"
           animate={{
@@ -185,12 +238,9 @@ const FeatureBox = ({ feature, index }) => {
             delay: index * 0.4,
           }}
         />
-
-        {/* Actual icon */}
         <div className="feature-icon">{feature.icon}</div>
       </motion.div>
 
-      {/* Title */}
       <motion.h3
         className="feature-title"
         initial={{ opacity: 0, x: -30 }}
@@ -205,7 +255,6 @@ const FeatureBox = ({ feature, index }) => {
         {feature.title}
       </motion.h3>
 
-      {/* Green underline */}
       <motion.div
         className="title-underline"
         initial={{ width: 0 }}
@@ -218,7 +267,6 @@ const FeatureBox = ({ feature, index }) => {
         }}
       />
 
-      {/* Description */}
       <motion.p
         className="feature-desc"
         initial={{ opacity: 0, y: 20 }}
