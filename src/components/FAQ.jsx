@@ -52,36 +52,50 @@ const FAQ = () => {
 
   return (
     <section className="faq-section">
-
-      {/* ✅ TOP — Header */}
-      <div className="faq-header-block">
-        <motion.h2
-          className="faq-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          Got Questions? <br /> We've Got Answers
-        </motion.h2>
-
-        <motion.p
-          className="faq-subtitle-text"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-        >
-          Find answers to common questions about our gym, memberships,
-          facilities, and training programs.
-        </motion.p>
-      </div>
-
-      {/* ✅ BOTTOM — FAQ List + Video */}
       <div className="faq-container">
 
-        {/* LEFT — FAQ List */}
+        {/* ============ LEFT SIDE — Title + Description ============ */}
         <div className="faq-left">
+
+          <motion.h2
+            className="faq-title"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            Got Questions? <br /> We've Got Answers
+          </motion.h2>
+
+          <motion.p
+            className="faq-subtitle-text"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+          >
+            Find answers to common questions about our gym, memberships,
+            facilities, and training programs.
+          </motion.p>
+
+          {/* ✅ Optional Button — Screenshot 2 jaisa */}
+          <motion.button
+            className="faq-cta-btn"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Read Our Full FAQs →
+          </motion.button>
+
+        </div>
+
+        {/* ============ RIGHT SIDE — FAQ List ============ */}
+        <div className="faq-right">
+
           <div className="faq-list">
             {faqData.map((item, index) => {
               const isOpen = openIndex === index;
@@ -90,8 +104,8 @@ const FAQ = () => {
                 <motion.div
                   key={item.id}
                   className={`faq-item ${isOpen ? "open" : ""}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: false, amount: 0.2 }}
                   transition={{
                     duration: 0.5,
@@ -140,58 +154,8 @@ const FAQ = () => {
               );
             })}
           </div>
+
         </div>
-
-        {/* RIGHT — Video */}
-        <motion.div
-          className="faq-right-video"
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          {/* Rotating Glow */}
-          <motion.div
-            className="faq-video-glow"
-            animate={{ rotate: 360 }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-
-          {/* Video Wrapper */}
-          <motion.div
-            className="faq-video-wrapper"
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* ✅ Video */}
-            <motion.video
-              className="faq-video"
-              autoPlay
-              loop
-              muted
-              playsInline
-              animate={{
-                y: [0, -8, 0],
-                scale: [1, 1.02, 1],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <source src="/assets/FAQ.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </motion.video>
-
-            {/* Green Overlay */}
-            <div className="faq-video-overlay"></div>
-          </motion.div>
-        </motion.div>
 
       </div>
     </section>
