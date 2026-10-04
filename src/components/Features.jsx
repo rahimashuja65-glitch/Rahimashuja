@@ -12,6 +12,8 @@ const Features = () => {
       title: "EXPERT STAFF",
       description:
         "Our team of fitness professionals is here to guide and support you every step of the way.",
+      // ✅ Image position — 4 cards mein split
+      bgPosition: "0% 50%",            // Left — part 1
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 6a4 4 0 0 0-4 4v3a4 4 0 0 0 8 0v-3" />
@@ -27,6 +29,7 @@ const Features = () => {
       title: "COMMUNITY ATMOSPHERE",
       description:
         "Join a welcoming community of fitness enthusiasts who motivate and inspire each other.",
+      bgPosition: "33.33% 50%",        // Center-left — part 2
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
@@ -41,6 +44,7 @@ const Features = () => {
       title: "CONVENIENT HOURS",
       description:
         "Our team of fitness professionals is here to guide and support you every step of the way.",
+      bgPosition: "66.66% 50%",        // Center-right — part 3
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="9" />
@@ -54,6 +58,7 @@ const Features = () => {
       title: "CLEAN & SAFE ENVIRONMENT",
       description:
         "Your health and safety are our top priorities. We maintain a clean and sanitized facility at all times.",
+      bgPosition: "100% 50%",          // Right — part 4
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22v-8" />
@@ -69,7 +74,6 @@ const Features = () => {
   return (
     <section className="features-section">
 
-      {/* 🌊 Background Decorative Circles */}
       <div className="features-bg-deco">
         <div className="bg-circle circle-1"></div>
         <div className="bg-circle circle-2"></div>
@@ -124,22 +128,15 @@ const Features = () => {
           </motion.p>
         </div>
 
-        {/* ✅ 4 Feature Cards — With Image Behind */}
-        <div className="features-cards-wrapper">
-
-          {/* 🌄 IMAGE BEHIND CARDS */}
-          <div className="features-cards-bg"></div>
-
-          <div className="features-grid">
-            {featuresData.map((feature, index) => (
-              <FeatureCard
-                key={feature.id}
-                feature={feature}
-                index={index}
-              />
-            ))}
-          </div>
-
+        {/* ✅ 4 Feature Cards — Combined Image Split */}
+        <div className="features-grid">
+          {featuresData.map((feature, index) => (
+            <FeatureCard
+              key={feature.id}
+              feature={feature}
+              index={index}
+            />
+          ))}
         </div>
 
       </div>
@@ -148,7 +145,7 @@ const Features = () => {
 };
 
 /* ============================================
-   Feature Card Component
+   Feature Card Component — Split Image
    ============================================ */
 const FeatureCard = ({ feature, index }) => {
   return (
@@ -163,77 +160,89 @@ const FeatureCard = ({ feature, index }) => {
         ease: "easeOut",
       }}
       whileHover={{
-        y: -15,
-        scale: 1.02,
+        y: -10,
         transition: { duration: 0.4, ease: "easeOut" },
       }}
     >
-      <div className="card-border-glow"></div>
+      {/* ✅ Image — Split into 4 parts */}
+      <div
+        className="card-bg-image"
+        style={{ backgroundPosition: feature.bgPosition }}
+      ></div>
+
+      {/* Dark Overlay */}
+      <div className="card-overlay"></div>
+
+      {/* Shine Effect */}
       <div className="card-shine"></div>
 
-      <motion.div
-        className="card-number"
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
-      >
-        {feature.number}
-      </motion.div>
+      {/* Content */}
+      <div className="card-content">
 
-      <motion.div
-        className="feature-icon-wrapper"
-        initial={{ opacity: 0, scale: 0.3, rotate: -180 }}
-        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1, delay: index * 0.15 + 0.2 }}
-        whileHover={{
-          rotate: 360,
-          transition: { duration: 0.8 },
-        }}
-      >
+        {/* Number */}
         <motion.div
-          className="icon-ring-outer"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: index * 0.5 }}
+          className="card-number"
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
+        >
+          {feature.number}
+        </motion.div>
+
+        {/* Icon */}
+        <motion.div
+          className="feature-icon-wrapper"
+          initial={{ opacity: 0, scale: 0.3, rotate: -180 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1, delay: index * 0.15 + 0.2 }}
+        >
+          <motion.div
+            className="icon-ring-outer"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: index * 0.5 }}
+          />
+          <motion.div
+            className="icon-glow"
+            animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
+          />
+          <div className="feature-icon">{feature.icon}</div>
+        </motion.div>
+
+        {/* Title */}
+        <motion.h3
+          className="feature-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: index * 0.15 + 0.5 }}
+        >
+          {feature.title}
+        </motion.h3>
+
+        {/* Underline */}
+        <motion.div
+          className="title-underline"
+          initial={{ width: 0 }}
+          whileInView={{ width: "60px" }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: index * 0.15 + 0.7 }}
         />
 
-        <motion.div
-          className="icon-glow"
-          animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
-        />
+        {/* Description */}
+        <motion.p
+          className="feature-desc"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: index * 0.15 + 0.8 }}
+        >
+          {feature.description}
+        </motion.p>
 
-        <div className="feature-icon">{feature.icon}</div>
-      </motion.div>
-
-      <motion.h3
-        className="feature-title"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: index * 0.15 + 0.5 }}
-      >
-        {feature.title}
-      </motion.h3>
-
-      <motion.div
-        className="title-underline"
-        initial={{ width: 0 }}
-        whileInView={{ width: "60px" }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: index * 0.15 + 0.7 }}
-      />
-
-      <motion.p
-        className="feature-desc"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: index * 0.15 + 0.8 }}
-      >
-        {feature.description}
-      </motion.p>
+      </div>
 
     </motion.div>
   );

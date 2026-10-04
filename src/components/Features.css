@@ -79,7 +79,7 @@
    ============================================ */
 .features-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .features-subtitle {
@@ -122,124 +122,86 @@
 }
 
 /* ============================================
-   ✅ CARDS WRAPPER — IMAGE BEHIND CARDS
-   ============================================ */
-.features-cards-wrapper {
-  position: relative;
-  padding: 40px;
-  border-radius: 30px;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* 🌄 IMAGE — CLEAR, BEHIND CARDS */
-.features-cards-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("/assets/gym-background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* ✅ Full clear — NO overlay, NO blur */
-  opacity: 1;
-
-  z-index: 0;
-  pointer-events: none;
-
-  /* ✅ Dark gradient only at edges (cards readable) */
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
-}
-
-/* Dark gradient overlay — text readable */
-.features-cards-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* ============================================
-   CARDS GRID — Above Image
+   4 CARDS GRID
    ============================================ */
 .features-grid {
-  position: relative;
-  z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 0;                              /* ✅ NO GAP — cards attached */
   align-items: stretch;
+  border-radius: 24px;
+  overflow: hidden;                    /* ✅ Combined look */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 /* ============================================
-   🎨 FEATURE CARD — Semi-Transparent
+   🎨 FEATURE CARD — With Split Image
    ============================================ */
 .feature-card {
   position: relative;
   padding: 60px 28px 40px;
-  border-radius: 20px;
-
-  /* ✅ Semi-transparent — image peeche se dikhe */
-  background: rgba(15, 15, 15, 0.7);
-
-  /* ✅ Frosted glass — image blur through card */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-
-  border: 1px solid rgba(74, 222, 128, 0.2);
-
+  min-height: 480px;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
   isolation: isolate;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* ✅ Border between cards */
+  border-right: 1px solid rgba(74, 222, 128, 0.15);
 }
 
-.feature-card:hover {
-  background: rgba(20, 20, 20, 0.8);
-  border-color: rgba(74, 222, 128, 0.5);
-  transform: translateY(-10px);
-  box-shadow: 
-    0 25px 60px rgba(74, 222, 128, 0.2),
-    0 0 0 1px rgba(74, 222, 128, 0.4);
+.feature-card:last-child {
+  border-right: none;
 }
 
-/* ✨ Gradient Border on Hover */
-.card-border-glow {
+/* ✅ IMAGE INSIDE CARD — Split */
+.card-bg-image {
   position: absolute;
   inset: 0;
-  border-radius: 20px;
-  padding: 2px;
-  background: linear-gradient(
-    135deg,
-    rgba(74, 222, 128, 0) 0%,
-    rgba(74, 222, 128, 0.8) 50%,
-    rgba(74, 222, 128, 0) 100%
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-  pointer-events: none;
+
+  /* ✅ Image path */
+  background-image: url("/assets/gym-background.jpg");
+  background-size: 400% 100%;           /* ✅ 4x width — split into 4 */
+  background-repeat: no-repeat;
+
+  /* ✅ Position set via inline style */
+  z-index: 0;
+
+  transition: transform 0.5s ease;
 }
 
-.feature-card:hover .card-border-glow {
-  opacity: 1;
+/* Hover pe image zoom */
+.feature-card:hover .card-bg-image {
+  transform: scale(1.1);
+}
+
+/* Dark Overlay — Text readable */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.feature-card:hover .card-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
 }
 
 /* 💫 Shine Sweep */
@@ -265,6 +227,17 @@
   transform: translateX(50%) translateY(50%) rotate(0deg);
 }
 
+/* Content wrapper */
+.card-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
 /* 🎯 Number Badge */
 .card-number {
   position: absolute;
@@ -273,10 +246,11 @@
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 2px;
-  color: rgba(74, 222, 128, 0.5);
+  color: rgba(74, 222, 128, 0.6);
   font-family: inherit;
-  z-index: 3;
   transition: color 0.3s ease;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  z-index: 3;
 }
 
 .feature-card:hover .card-number {
@@ -294,15 +268,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
-  z-index: 3;
+  margin-bottom: 28px;
 }
 
 .icon-ring-outer {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1.5px dashed rgba(74, 222, 128, 0.4);
+  border: 1.5px dashed rgba(74, 222, 128, 0.5);
   pointer-events: none;
 }
 
@@ -312,8 +285,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(74, 222, 128, 0.5) 0%,
-    rgba(74, 222, 128, 0.15) 40%,
+    rgba(74, 222, 128, 0.6) 0%,
+    rgba(74, 222, 128, 0.2) 40%,
     transparent 70%
   );
   filter: blur(15px);
@@ -327,7 +300,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 2px solid #4ade80;
@@ -336,16 +309,16 @@
   justify-content: center;
   color: #4ade80;
   box-shadow: 
-    0 0 30px rgba(74, 222, 128, 0.4),
-    inset 0 0 20px rgba(74, 222, 128, 0.15);
+    0 0 30px rgba(74, 222, 128, 0.5),
+    inset 0 0 20px rgba(74, 222, 128, 0.2);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
-  background: rgba(20, 20, 20, 0.95);
+  background: rgba(20, 20, 20, 0.85);
   box-shadow: 
-    0 0 50px rgba(74, 222, 128, 0.7),
-    inset 0 0 25px rgba(74, 222, 128, 0.25);
+    0 0 50px rgba(74, 222, 128, 0.8),
+    inset 0 0 25px rgba(74, 222, 128, 0.3);
   transform: scale(1.05);
 }
 
@@ -364,7 +337,7 @@
    TITLE
    ============================================ */
 .feature-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #ffffff;
   text-transform: uppercase;
@@ -376,10 +349,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 3;
-  position: relative;
   transition: color 0.3s ease;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
 }
 
 .feature-card:hover .feature-title {
@@ -397,8 +368,6 @@
   border-radius: 3px;
   margin: 0 auto 20px;
   display: block;
-  z-index: 3;
-  position: relative;
   box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
 }
 
@@ -406,19 +375,17 @@
    DESCRIPTION
    ============================================ */
 .feature-desc {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.7;
-  color: #c5c5c5;
+  color: #d0d0d0;
   margin: 0;
   text-align: center;
-  z-index: 3;
-  position: relative;
   transition: color 0.3s ease;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .feature-card:hover .feature-desc {
-  color: #e0e0e0;
+  color: #f0f0f0;
 }
 
 /* ============================================
@@ -426,16 +393,30 @@
    ============================================ */
 @media (max-width: 1200px) {
   .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);      /* 2x2 grid */
+    gap: 0;
+  }
+
+  .feature-card {
+    border-right: 1px solid rgba(74, 222, 128, 0.15);
+    border-bottom: 1px solid rgba(74, 222, 128, 0.15);
+  }
+
+  .feature-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .feature-card:nth-child(3),
+  .feature-card:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .card-bg-image {
+    background-size: 200% 200%;                 /* 2x2 split */
   }
 
   .features-title {
     font-size: 3.5rem;
-  }
-
-  .features-cards-wrapper {
-    padding: 30px;
   }
 }
 
@@ -446,58 +427,28 @@
 
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .features-title {
-    font-size: 2.2rem;
-    letter-spacing: -1px;
-  }
-
-  .features-description {
-    font-size: 1rem;
-  }
-
-  .features-header {
-    margin-bottom: 50px;
-  }
-
-  .features-cards-wrapper {
-    padding: 20px;
     border-radius: 20px;
   }
 
   .feature-card {
-    padding: 50px 24px 36px;
+    border-right: none;
+    border-bottom: 1px solid rgba(74, 222, 128, 0.15);
+    min-height: 400px;
   }
 
-  .feature-icon-wrapper {
-    width: 90px;
-    height: 90px;
+  .feature-card:last-child {
+    border-bottom: none;
   }
 
-  .feature-icon {
-    width: 75px;
-    height: 75px;
+  .card-bg-image {
+    background-size: 100% 400%;                 /* Vertical split */
   }
 
-  .feature-icon svg {
-    width: 34px;
-    height: 34px;
+  .features-title {
+    font-size: 2.2rem;
   }
 
-  .feature-title {
-    font-size: 1.05rem;
-  }
-
-  .feature-desc {
-    font-size: 0.9rem;
-  }
-
-  .circle-1,
-  .circle-2,
-  .circle-3 {
-    width: 250px;
-    height: 250px;
+  .features-description {
+    font-size: 1rem;
   }
 }
