@@ -15,7 +15,7 @@ function Home() {
      <Contact />
      <FAQ />
      <Newsletter />
-     <Footer1 />
+     {/* <Footer1 /> */}
      <Exercises />
       <Features />
      <AboutFAQ />
