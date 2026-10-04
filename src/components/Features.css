@@ -14,35 +14,42 @@
   isolation: isolate;
 }
 
-/* 🌄 Background Image Layer */
+/* ============================================
+   🌄 BACKGROUND IMAGE — SUBTLE
+   ============================================ */
 .features-bg-image {
   position: absolute;
   inset: 0;
-  background-image: url("/assets/gym-background.jpg");     /* ✅ APNI IMAGE KA NAAM */
+  background-image: url("/assets/gym-background.jpg");     /* ✅ PATH */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  opacity: 0.15;                                        /* ✅ Subtle */
+  opacity: 0.08;                                           /* ✅ Bahut halka */
+  filter: blur(2px) brightness(0.6);                       /* ✅ Blur + dark */
   z-index: -2;
   pointer-events: none;
 }
 
-/* 🌑 Dark Overlay — text readable rakhe */
+/* ============================================
+   🌑 DARK OVERLAY — Almost Solid
+   ============================================ */
 .features-bg-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(28, 28, 28, 0.85) 0%,
-    rgba(28, 28, 28, 0.7) 50%,
+    rgba(28, 28, 28, 0.92) 0%,
+    rgba(28, 28, 28, 0.88) 50%,
     rgba(28, 28, 28, 0.95) 100%
   );
   z-index: -1;
   pointer-events: none;
 }
 
-/* 🌊 Background Decorative Circles */
+/* ============================================
+   🌊 DECORATIVE CIRCLES
+   ============================================ */
 .features-bg-deco {
   position: absolute;
   inset: 0;
@@ -92,6 +99,9 @@
   50% { transform: translate(40px, -40px) scale(1.1); }
 }
 
+/* ============================================
+   CONTAINER
+   ============================================ */
 .features-container {
   position: relative;
   z-index: 1;
@@ -100,7 +110,7 @@
 }
 
 /* ============================================
-   TITLE
+   TITLE SECTION
    ============================================ */
 .features-header {
   text-align: center;
@@ -133,21 +143,22 @@
   display: inline-block;
 }
 
+/* KINETIX? Ke peeche halka glow */
 .features-title.highlighted::after {
   content: "";
   position: absolute;
   inset: -20px;
   background: radial-gradient(
     circle,
-    rgba(74, 222, 128, 0.2) 0%,
+    rgba(74, 222, 128, 0.08) 0%,
     transparent 70%
   );
-  filter: blur(30px);
+  filter: blur(40px);
   z-index: -1;
   pointer-events: none;
 }
 
-/* ✅ Description Paragraph */
+/* Description Paragraph */
 .features-description {
   font-size: 1.05rem;
   line-height: 1.75;
@@ -170,7 +181,7 @@
 }
 
 /* ============================================
-   FEATURE CARD — WOW VERSION
+   FEATURE CARD — SOLID & CLEAN
    ============================================ */
 .feature-card {
   position: relative;
@@ -178,8 +189,8 @@
   border-radius: 20px;
   background: linear-gradient(
     145deg,
-    rgba(30, 30, 30, 0.9) 0%,
-    rgba(20, 20, 20, 0.95) 100%
+    rgba(30, 30, 30, 0.98) 0%,
+    rgba(18, 18, 18, 0.99) 100%
   );
   border: 1px solid rgba(74, 222, 128, 0.15);
   overflow: hidden;
@@ -190,6 +201,8 @@
   text-align: center;
   transition: border-color 0.4s ease, box-shadow 0.4s ease;
   isolation: isolate;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* ✨ Animated Gradient Border */
@@ -260,7 +273,7 @@
   color: #4ade80;
 }
 
-/* Box Hover Glow */
+/* Card Hover State */
 .feature-card:hover {
   border-color: rgba(74, 222, 128, 0.5);
   box-shadow: 
@@ -405,6 +418,8 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* Tablet */
 @media (max-width: 1200px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -416,6 +431,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 700px) {
   .features-section {
     padding: 80px 20px 60px;
