@@ -7,7 +7,7 @@
   position: relative;
   background: #1c1c1c;
   color: #fff;
-  padding: 100px 60px;
+  padding: 40px 60px 100px;              /* ✅ Top 100px → 40px */
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
