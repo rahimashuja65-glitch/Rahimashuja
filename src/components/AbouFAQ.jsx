@@ -64,8 +64,9 @@ const AboutFAQ = () => {
 
       <div className="aboutfaq-container">
 
-        {/* ✅ Header */}
-        <div className="aboutfaq-header">
+        {/* ============ LEFT SIDE — Title + Description ============ */}
+        <div className="aboutfaq-left">
+
           <motion.p
             className="aboutfaq-subtitle"
             initial={{ opacity: 0, y: 20 }}
@@ -106,120 +107,133 @@ const AboutFAQ = () => {
             Learn more about KINETIX — our journey, our team, our mission,
             and everything that makes our fitness community special.
           </motion.p>
+
+          {/* ✅ Optional CTA Button */}
+          <motion.button
+            className="aboutfaq-cta-btn"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Learn More About Us →
+          </motion.button>
+
         </div>
 
-        {/* ✅ FAQ List */}
-        <div className="aboutfaq-list">
-          {faqData.map((item, index) => {
-            const isOpen = openIndex === index;
+        {/* ============ RIGHT SIDE — FAQ List ============ */}
+        <div className="aboutfaq-right">
 
-            return (
-              <motion.div
-                key={item.id}
-                className={`aboutfaq-item ${isOpen ? "open" : ""}`}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  x: 8,
-                  transition: { duration: 0.3 },
-                }}
-              >
-                {/* ✨ Gradient Border (Active pe glow) */}
-                <div className="aboutfaq-item-border"></div>
+          <div className="aboutfaq-list">
+            {faqData.map((item, index) => {
+              const isOpen = openIndex === index;
 
-                {/* 🎯 Number Badge */}
+              return (
                 <motion.div
-                  className="aboutfaq-number"
-                  animate={{
-                    color: isOpen ? "#4ade80" : "#4a4a4a",
-                    scale: isOpen ? 1.1 : 1,
+                  key={item.id}
+                  className={`aboutfaq-item ${isOpen ? "open" : ""}`}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.08,
+                    ease: "easeOut",
                   }}
-                  transition={{ duration: 0.3 }}
                 >
-                  {item.number}
-                </motion.div>
+                  {/* Gradient Border (Active pe) */}
+                  <div className="aboutfaq-item-border"></div>
 
-                {/* Question Row */}
-                <div
-                  className="aboutfaq-question"
-                  onClick={() => toggleFAQ(index)}
-                >
-                  <h3 className="aboutfaq-q-text">{item.question}</h3>
-
-                  {/* Arrow Icon */}
+                  {/* Number Badge */}
                   <motion.div
-                    className="aboutfaq-icon"
+                    className="aboutfaq-number"
                     animate={{
-                      rotate: isOpen ? 90 : 0,
+                      color: isOpen ? "#4ade80" : "#4a4a4a",
                       scale: isOpen ? 1.1 : 1,
                     }}
-                    transition={{
-                      duration: 0.4,
-                      ease: "easeInOut",
-                    }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="9 6 15 12 9 18" />
-                    </svg>
+                    {item.number}
                   </motion.div>
-                </div>
 
-                {/* Answer */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
+                  {/* Question Row */}
+                  <div
+                    className="aboutfaq-question"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <h3 className="aboutfaq-q-text">{item.question}</h3>
+
                     <motion.div
-                      className="aboutfaq-answer"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      className="aboutfaq-icon"
+                      animate={{
+                        rotate: isOpen ? 90 : 0,
+                        scale: isOpen ? 1.1 : 1,
+                      }}
                       transition={{
-                        duration: 0.5,
+                        duration: 0.4,
                         ease: "easeInOut",
                       }}
                     >
-                      <motion.p
-                        className="aboutfaq-a-text"
-                        initial={{ y: -10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -10, opacity: 0 }}
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="9 6 15 12 9 18" />
+                      </svg>
+                    </motion.div>
+                  </div>
+
+                  {/* Answer */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        className="aboutfaq-answer"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
                         transition={{
-                          duration: 0.4,
-                          delay: 0.1,
+                          duration: 0.5,
+                          ease: "easeInOut",
                         }}
                       >
-                        {item.answer}
-                      </motion.p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                        <motion.p
+                          className="aboutfaq-a-text"
+                          initial={{ y: -10, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: -10, opacity: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: 0.1,
+                          }}
+                        >
+                          {item.answer}
+                        </motion.p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-                {/* 🔥 Active Glowing Dot */}
-                {isOpen && (
-                  <motion.div
-                    className="aboutfaq-active-dot"
-                    layoutId="activeDot"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </motion.div>
-            );
-          })}
+                  {/* Active Glowing Dot */}
+                  {isOpen && (
+                    <motion.div
+                      className="aboutfaq-active-dot"
+                      layoutId="aboutActiveDot"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+
         </div>
 
       </div>
