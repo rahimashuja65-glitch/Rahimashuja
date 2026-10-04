@@ -1,7 +1,7 @@
 /* src/styles/Features.css */
 
 /* ============================================
-   SECTION — With Background Image
+   SECTION
    ============================================ */
 .features-section {
   position: relative;
@@ -14,42 +14,7 @@
   isolation: isolate;
 }
 
-/* ============================================
-   🌄 BACKGROUND IMAGE — SUBTLE
-   ============================================ */
-.features-bg-image {
-  position: absolute;
-  inset: 0;
-  background-image: url("/assets/gym-background.jpg");     /* ✅ PATH */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.08;                                           /* ✅ Bahut halka */
-  filter: blur(2px) brightness(0.6);                       /* ✅ Blur + dark */
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* ============================================
-   🌑 DARK OVERLAY — Almost Solid
-   ============================================ */
-.features-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(28, 28, 28, 0.92) 0%,
-    rgba(28, 28, 28, 0.88) 50%,
-    rgba(28, 28, 28, 0.95) 100%
-  );
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* ============================================
-   🌊 DECORATIVE CIRCLES
-   ============================================ */
+/* 🌊 Decorative Circles */
 .features-bg-deco {
   position: absolute;
   inset: 0;
@@ -110,11 +75,11 @@
 }
 
 /* ============================================
-   TITLE SECTION
+   TITLE
    ============================================ */
 .features-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .features-subtitle {
@@ -124,10 +89,11 @@
   font-weight: 700;
   margin: 0 0 20px 0;
   text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
 }
 
 .features-title {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -2px;
@@ -141,71 +107,115 @@
   color: #4ade80;
   position: relative;
   display: inline-block;
+  text-shadow: 0 0 40px rgba(74, 222, 128, 0.4);
 }
 
-/* KINETIX? Ke peeche halka glow */
-.features-title.highlighted::after {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(
-    circle,
-    rgba(74, 222, 128, 0.08) 0%,
-    transparent 70%
-  );
-  filter: blur(40px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Description Paragraph */
 .features-description {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: #9a9a9a;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #b5b5b5;
   max-width: 720px;
-  margin: 30px auto 0 auto;
+  margin: 35px auto 0 auto;
   text-align: center;
   font-family: inherit;
   font-weight: 400;
 }
 
 /* ============================================
-   4 CARDS GRID
+   ✅ CARDS WRAPPER — IMAGE BEHIND CARDS
+   ============================================ */
+.features-cards-wrapper {
+  position: relative;
+  padding: 40px;
+  border-radius: 30px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 🌄 IMAGE — CLEAR, BEHIND CARDS */
+.features-cards-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/gym-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* ✅ Full clear — NO overlay, NO blur */
+  opacity: 1;
+
+  z-index: 0;
+  pointer-events: none;
+
+  /* ✅ Dark gradient only at edges (cards readable) */
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+}
+
+/* Dark gradient overlay — text readable */
+.features-cards-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ============================================
+   CARDS GRID — Above Image
    ============================================ */
 .features-grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 20px;
   align-items: stretch;
 }
 
 /* ============================================
-   FEATURE CARD — SOLID & CLEAN
+   🎨 FEATURE CARD — Semi-Transparent
    ============================================ */
 .feature-card {
   position: relative;
   padding: 60px 28px 40px;
   border-radius: 20px;
-  background: linear-gradient(
-    145deg,
-    rgba(30, 30, 30, 0.98) 0%,
-    rgba(18, 18, 18, 0.99) 100%
-  );
-  border: 1px solid rgba(74, 222, 128, 0.15);
+
+  /* ✅ Semi-transparent — image peeche se dikhe */
+  background: rgba(15, 15, 15, 0.7);
+
+  /* ✅ Frosted glass — image blur through card */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(74, 222, 128, 0.2);
+
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  transition: all 0.4s ease;
   isolation: isolate;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* ✨ Animated Gradient Border */
+.feature-card:hover {
+  background: rgba(20, 20, 20, 0.8);
+  border-color: rgba(74, 222, 128, 0.5);
+  transform: translateY(-10px);
+  box-shadow: 
+    0 25px 60px rgba(74, 222, 128, 0.2),
+    0 0 0 1px rgba(74, 222, 128, 0.4);
+}
+
+/* ✨ Gradient Border on Hover */
 .card-border-glow {
   position: absolute;
   inset: 0;
@@ -232,7 +242,7 @@
   opacity: 1;
 }
 
-/* 💫 Shine Sweep Effect */
+/* 💫 Shine Sweep */
 .card-shine {
   position: absolute;
   top: -50%;
@@ -263,7 +273,7 @@
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 2px;
-  color: rgba(74, 222, 128, 0.4);
+  color: rgba(74, 222, 128, 0.5);
   font-family: inherit;
   z-index: 3;
   transition: color 0.3s ease;
@@ -271,19 +281,11 @@
 
 .feature-card:hover .card-number {
   color: #4ade80;
-}
-
-/* Card Hover State */
-.feature-card:hover {
-  border-color: rgba(74, 222, 128, 0.5);
-  box-shadow: 
-    0 20px 60px rgba(74, 222, 128, 0.15),
-    0 0 0 1px rgba(74, 222, 128, 0.3),
-    inset 0 0 40px rgba(74, 222, 128, 0.05);
+  text-shadow: 0 0 15px rgba(74, 222, 128, 0.8);
 }
 
 /* ============================================
-   ICON — With Rotating Ring
+   ICON
    ============================================ */
 .feature-icon-wrapper {
   position: relative;
@@ -300,7 +302,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1.5px dashed rgba(74, 222, 128, 0.35);
+  border: 1.5px dashed rgba(74, 222, 128, 0.4);
   pointer-events: none;
 }
 
@@ -325,23 +327,25 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 2px solid #4ade80;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #4ade80;
   box-shadow: 
-    0 0 30px rgba(74, 222, 128, 0.3),
-    inset 0 0 20px rgba(74, 222, 128, 0.1);
+    0 0 30px rgba(74, 222, 128, 0.4),
+    inset 0 0 20px rgba(74, 222, 128, 0.15);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
-  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  background: rgba(20, 20, 20, 0.95);
   box-shadow: 
-    0 0 50px rgba(74, 222, 128, 0.6),
-    inset 0 0 25px rgba(74, 222, 128, 0.2);
+    0 0 50px rgba(74, 222, 128, 0.7),
+    inset 0 0 25px rgba(74, 222, 128, 0.25);
   transform: scale(1.05);
 }
 
@@ -375,6 +379,7 @@
   z-index: 3;
   position: relative;
   transition: color 0.3s ease;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
 }
 
 .feature-card:hover .feature-title {
@@ -394,7 +399,7 @@
   display: block;
   z-index: 3;
   position: relative;
-  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
 }
 
 /* ============================================
@@ -403,35 +408,37 @@
 .feature-desc {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #9a9a9a;
+  color: #c5c5c5;
   margin: 0;
   text-align: center;
   z-index: 3;
   position: relative;
   transition: color 0.3s ease;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .feature-card:hover .feature-desc {
-  color: #c5c5c5;
+  color: #e0e0e0;
 }
 
 /* ============================================
    RESPONSIVE
    ============================================ */
-
-/* Tablet */
 @media (max-width: 1200px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 20px;
   }
 
   .features-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+  }
+
+  .features-cards-wrapper {
+    padding: 30px;
   }
 }
 
-/* Mobile */
 @media (max-width: 700px) {
   .features-section {
     padding: 80px 20px 60px;
@@ -439,20 +446,25 @@
 
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
 
   .features-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     letter-spacing: -1px;
   }
 
   .features-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .features-header {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+  }
+
+  .features-cards-wrapper {
+    padding: 20px;
+    border-radius: 20px;
   }
 
   .feature-card {
@@ -462,7 +474,6 @@
   .feature-icon-wrapper {
     width: 90px;
     height: 90px;
-    margin-bottom: 24px;
   }
 
   .feature-icon {

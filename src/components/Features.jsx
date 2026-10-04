@@ -69,12 +69,6 @@ const Features = () => {
   return (
     <section className="features-section">
 
-      {/* 🌄 Background Image */}
-      <div className="features-bg-image"></div>
-
-      {/* 🌑 Dark Overlay */}
-      <div className="features-bg-overlay"></div>
-
       {/* 🌊 Background Decorative Circles */}
       <div className="features-bg-deco">
         <div className="bg-circle circle-1"></div>
@@ -116,7 +110,6 @@ const Features = () => {
             KINETIX?
           </motion.h2>
 
-          {/* ✅ Description Paragraph */}
           <motion.p
             className="features-description"
             initial={{ opacity: 0, y: 20 }}
@@ -131,15 +124,22 @@ const Features = () => {
           </motion.p>
         </div>
 
-        {/* ✅ 4 Feature Cards */}
-        <div className="features-grid">
-          {featuresData.map((feature, index) => (
-            <FeatureCard
-              key={feature.id}
-              feature={feature}
-              index={index}
-            />
-          ))}
+        {/* ✅ 4 Feature Cards — With Image Behind */}
+        <div className="features-cards-wrapper">
+
+          {/* 🌄 IMAGE BEHIND CARDS */}
+          <div className="features-cards-bg"></div>
+
+          <div className="features-grid">
+            {featuresData.map((feature, index) => (
+              <FeatureCard
+                key={feature.id}
+                feature={feature}
+                index={index}
+              />
+            ))}
+          </div>
+
         </div>
 
       </div>
@@ -168,112 +168,69 @@ const FeatureCard = ({ feature, index }) => {
         transition: { duration: 0.4, ease: "easeOut" },
       }}
     >
-      {/* ✨ Animated Gradient Border */}
       <div className="card-border-glow"></div>
-
-      {/* 💫 Shine Sweep Effect */}
       <div className="card-shine"></div>
 
-      {/* 🎯 Number Badge */}
       <motion.div
         className="card-number"
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false, amount: 0.2 }}
-        transition={{
-          duration: 0.6,
-          delay: index * 0.15 + 0.4,
-          ease: "easeOut",
-        }}
+        transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
       >
         {feature.number}
       </motion.div>
 
-      {/* 🌟 Icon with Rotating Rings */}
       <motion.div
         className="feature-icon-wrapper"
         initial={{ opacity: 0, scale: 0.3, rotate: -180 }}
         whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{
-          duration: 1,
-          delay: index * 0.15 + 0.2,
-          ease: "easeOut",
-        }}
+        transition={{ duration: 1, delay: index * 0.15 + 0.2 }}
         whileHover={{
           rotate: 360,
-          transition: { duration: 0.8, ease: "easeInOut" },
+          transition: { duration: 0.8 },
         }}
       >
-        {/* Rotating Outer Ring */}
         <motion.div
           className="icon-ring-outer"
           animate={{ rotate: 360 }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-            delay: index * 0.5,
-          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: index * 0.5 }}
         />
 
-        {/* Icon Glow */}
         <motion.div
           className="icon-glow"
-          animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.3, 0.8, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: index * 0.4,
-          }}
+          animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.8, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
         />
 
-        {/* Icon Circle */}
         <div className="feature-icon">{feature.icon}</div>
       </motion.div>
 
-      {/* Title */}
       <motion.h3
         className="feature-title"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{
-          duration: 0.8,
-          delay: index * 0.15 + 0.5,
-          ease: "easeOut",
-        }}
+        transition={{ duration: 0.8, delay: index * 0.15 + 0.5 }}
       >
         {feature.title}
       </motion.h3>
 
-      {/* Animated Underline */}
       <motion.div
         className="title-underline"
         initial={{ width: 0 }}
         whileInView={{ width: "60px" }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{
-          duration: 0.8,
-          delay: index * 0.15 + 0.7,
-          ease: "easeOut",
-        }}
+        transition={{ duration: 0.8, delay: index * 0.15 + 0.7 }}
       />
 
-      {/* Description */}
       <motion.p
         className="feature-desc"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{
-          duration: 0.8,
-          delay: index * 0.15 + 0.8,
-        }}
+        transition={{ duration: 0.8, delay: index * 0.15 + 0.8 }}
       >
         {feature.description}
       </motion.p>
