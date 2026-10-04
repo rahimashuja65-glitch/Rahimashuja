@@ -69,6 +69,12 @@ const Features = () => {
   return (
     <section className="features-section">
 
+      {/* 🌄 Background Image */}
+      <div className="features-bg-image"></div>
+
+      {/* 🌑 Dark Overlay */}
+      <div className="features-bg-overlay"></div>
+
       {/* 🌊 Background Decorative Circles */}
       <div className="features-bg-deco">
         <div className="bg-circle circle-1"></div>
@@ -79,52 +85,51 @@ const Features = () => {
       <div className="features-container">
 
         {/* ✅ Title Section */}
-        {/* ✅ Title Section */}
-<div className="features-header">
-  <motion.p
-    className="features-subtitle"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, amount: 0.3 }}
-    transition={{ duration: 0.8 }}
-  >
-    WHAT WE OFFER
-  </motion.p>
+        <div className="features-header">
+          <motion.p
+            className="features-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
+            WHAT WE OFFER
+          </motion.p>
 
-  <motion.h2
-    className="features-title"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, amount: 0.3 }}
-    transition={{ duration: 0.9, delay: 0.1 }}
-  >
-    WHY CHOOSE
-  </motion.h2>
+          <motion.h2
+            className="features-title"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+          >
+            WHY CHOOSE
+          </motion.h2>
 
-  <motion.h2
-    className="features-title highlighted"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, amount: 0.3 }}
-    transition={{ duration: 0.9, delay: 0.25 }}
-  >
-    KINETIX?
-  </motion.h2>
+          <motion.h2
+            className="features-title highlighted"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.25 }}
+          >
+            KINETIX?
+          </motion.h2>
 
-  {/* ✅ NEW — Description Paragraph */}
-  <motion.p
-    className="features-description"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: false, amount: 0.3 }}
-    transition={{ duration: 0.9, delay: 0.4 }}
-  >
-    At KINETIX, we don't just build bodies — we build confidence, community,
-    and lasting habits. With world-class equipment, certified trainers, and
-    an atmosphere that pushes you to be your best, every workout becomes a
-    step toward a stronger you.
-  </motion.p>
-</div>
+          {/* ✅ Description Paragraph */}
+          <motion.p
+            className="features-description"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.4 }}
+          >
+            At KINETIX, we don't just build bodies — we build confidence, community,
+            and lasting habits. With world-class equipment, certified trainers, and
+            an atmosphere that pushes you to be your best, every workout becomes a
+            step toward a stronger you.
+          </motion.p>
+        </div>
 
         {/* ✅ 4 Feature Cards */}
         <div className="features-grid">
@@ -143,7 +148,7 @@ const Features = () => {
 };
 
 /* ============================================
-   Feature Card Component — WOW Version
+   Feature Card Component
    ============================================ */
 const FeatureCard = ({ feature, index }) => {
   return (
