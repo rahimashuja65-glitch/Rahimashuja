@@ -50,8 +50,8 @@
    LEFT SIDE — Title + Description
    ============================================ */
 .aboutfaq-left {
-  padding-top: 20px;
-  position: sticky;                        /* ✅ Scroll pe fix */
+  padding-top: 0;                        /* ✅ 20px → 0 */
+  position: sticky;
   top: 100px;
 }
 
