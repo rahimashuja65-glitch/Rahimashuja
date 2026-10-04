@@ -1,19 +1,28 @@
+/* src/styles/Schedule.css */
+
+/* ---------- Section ---------- */
 .schedule-section {
   background: #1c1c1c;
   color: #fff;
   padding: 100px 60px;
   min-height: 100vh;
+
+  /* ✅ FONT FAMILY */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
 }
 
 .schedule-container {
   max-width: 1200px;
   margin: 0 auto;
+  font-family: inherit;
 }
 
 /* ---------- Header ---------- */
 .schedule-header {
   text-align: center;
   margin-bottom: 60px;
+  font-family: inherit;
 }
 
 .section-subtitle {
@@ -23,6 +32,7 @@
   font-weight: 600;
   margin-bottom: 15px;
   text-transform: uppercase;
+  font-family: inherit;
 }
 
 .section-title {
@@ -31,6 +41,7 @@
   line-height: 1.2;
   letter-spacing: 1px;
   text-transform: uppercase;
+  font-family: inherit;
 }
 
 /* ---------- Filter Tabs ---------- */
@@ -40,6 +51,7 @@
   flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 50px;
+  font-family: inherit;
 }
 
 .tab-btn {
@@ -54,6 +66,7 @@
   border-radius: 4px;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .tab-btn:hover {
@@ -74,6 +87,7 @@
   border: 1px solid #2a2a2a;
   border-radius: 8px;
   overflow: hidden;
+  font-family: inherit;
 }
 
 .table-header {
@@ -81,6 +95,7 @@
   grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr 1fr;
   background: #252525;
   border-bottom: 2px solid #4ade80;
+  font-family: inherit;
 }
 
 .header-cell {
@@ -91,12 +106,14 @@
   color: #4ade80;
   text-transform: uppercase;
   text-align: center;
+  font-family: inherit;
 }
 
 .table-row {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr 1fr;
   border-bottom: 1px solid #2a2a2a;
+  font-family: inherit;
 }
 
 .table-row:last-child {
@@ -110,6 +127,7 @@
   color: #ddd;
   text-align: center;
   font-weight: 500;
+  font-family: inherit;
 }
 
 /* Time column */
@@ -118,9 +136,10 @@
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.5px;
+  font-family: inherit;
 }
 
-/* ✅ Day cells — clickable banane ke liye */
+/* ✅ Day cells — clickable */
 .day-cell {
   cursor: pointer;
   border-radius: 4px;
@@ -128,6 +147,7 @@
   padding: 14px 10px;
   user-select: none;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: inherit;
 }
 
 /* ✅ Active (clicked) cell — permanently green */

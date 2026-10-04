@@ -1,22 +1,27 @@
-/* Contact.css */
+/* src/styles/Contact.css */
 
 /* ---------- Main Section ---------- */
 .contact {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 80px 40px;    /* ✅ Neeche 40px kam */
-  min-height: auto;            /* ✅ 100vh hata diya */
+  padding: 80px 80px 40px;
+  min-height: auto;
   background: #1c1c1c;
   color: #fff;
   overflow: hidden;
   gap: 60px;
+
+  /* ✅ FONT FAMILY */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ---------- LEFT SIDE ---------- */
 .contact-left {
   flex: 1;
   max-width: 550px;
+  font-family: inherit;
 }
 
 .contact-title {
@@ -27,6 +32,7 @@
   margin-bottom: 25px;
   color: #fff;
   text-transform: uppercase;
+  font-family: inherit;
 }
 
 .contact-para {
@@ -35,6 +41,7 @@
   color: #b5b5b5;
   margin-bottom: 40px;
   max-width: 480px;
+  font-family: inherit;
 }
 
 /* ---------- Buttons ---------- */
@@ -42,6 +49,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  font-family: inherit;
 }
 
 .contact-btn-green,
@@ -57,6 +65,7 @@
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .contact-btn-green {
@@ -86,6 +95,7 @@
   font-size: 1.4rem;
   line-height: 1;
   transition: transform 0.3s ease;
+  font-family: inherit;
 }
 
 .contact-btn-green:hover .arrow,
@@ -101,14 +111,15 @@
   justify-content: center;
   align-items: center;
   max-width: 600px;
+  font-family: inherit;
 }
 
-/* Rotating gradient glow — NEW */
+/* Rotating gradient glow */
 .contact-glow {
   position: absolute;
   width: 480px;
   height: 520px;
-  border-radius: 250px 250px 20px 20px;   /* same arch shape */
+  border-radius: 250px 250px 20px 20px;
   background: conic-gradient(
     from 0deg,
     #4ade80,
@@ -122,15 +133,12 @@
   z-index: 1;
 }
 
-/* ---------- ARCH SHAPE (NEW!) ---------- */
+/* ---------- ARCH SHAPE ---------- */
 .contact-img-wrapper {
   position: relative;
   width: 420px;
   height: 520px;
-
-  /* 🔥 MAGIC: top rounded like arch, bottom slightly rounded */
   border-radius: 210px 210px 20px 20px;
-
   overflow: hidden;
   z-index: 2;
   border: 3px solid #4ade80;
@@ -152,10 +160,12 @@
   background: rgba(74, 222, 128, 0.3);
   mix-blend-mode: multiply;
   pointer-events: none;
-  border-radius: 210px 210px 20px 20px;   /* match arch */
+  border-radius: 210px 210px 20px 20px;
 }
 
 /* ---------- Responsive ---------- */
+
+/* Tablet */
 @media (max-width: 1024px) {
   .contact {
     flex-direction: column;
@@ -184,5 +194,26 @@
 
   .contact-overlay {
     border-radius: 150px 150px 15px 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .contact {
+    padding: 40px 20px;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-para {
+    font-size: 1rem;
+  }
+
+  .contact-btn-green,
+  .contact-btn-outline {
+    padding: 14px 22px;
+    font-size: 0.85rem;
   }
 }
