@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import "./ClientStories.css";
 
 const ClientStories = () => {
-  // ✅ Real-looking photos — screenshot jaisi style
+  // ✅ Guaranteed working images
   const storiesData = [
     {
       id: 1,
@@ -15,10 +15,8 @@ const ClientStories = () => {
       duration: "8 Months",
       message:
         "KINETIX changed my life completely. The trainers were patient and supportive — they treated me like family. I finally feel confident in my own skin.",
-      // Before — normal casual photo
-      beforeImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80",
-      // After — fit photo
-      afterImage: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=533&fit=crop&q=80",
+      afterImage: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&h=533&fit=crop&q=80",
     },
     {
       id: 2,
@@ -28,8 +26,8 @@ const ClientStories = () => {
       duration: "10 Months",
       message:
         "From 115 KG to 80 KG — I never thought it was possible. The personalized diet plan and consistent training at KINETIX made all the difference.",
-      beforeImage: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&q=80",
-      afterImage: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=533&fit=crop&q=80",
+      afterImage: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=533&fit=crop&q=80",
     },
     {
       id: 3,
@@ -39,8 +37,8 @@ const ClientStories = () => {
       duration: "14 Months",
       message:
         "At 45, I thought it was too late. KINETIX proved me wrong. I've never felt this energetic in my entire life. This gym is truly life-changing.",
-      beforeImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80",
-      afterImage: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=533&fit=crop&q=80",
+      afterImage: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&h=533&fit=crop&q=80",
     },
     {
       id: 4,
@@ -50,8 +48,8 @@ const ClientStories = () => {
       duration: "12 Months",
       message:
         "The trainers at KINETIX didn't just transform my body — they transformed my mindset. I owe everything to this community.",
-      beforeImage: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&q=80",
-      afterImage: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=533&fit=crop&q=80",
+      afterImage: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&h=533&fit=crop&q=80",
     },
   ];
 
@@ -59,7 +57,7 @@ const ClientStories = () => {
     <section className="clientstories-section">
       <div className="clientstories-container">
 
-        {/* ============ HEADER ============ */}
+        {/* HEADER */}
         <div className="clientstories-header">
           <motion.p
             className="clientstories-subtitle"
@@ -93,7 +91,7 @@ const ClientStories = () => {
           </motion.p>
         </div>
 
-        {/* ============ STORIES GRID ============ */}
+        {/* GRID */}
         <div className="clientstories-grid">
           {storiesData.map((story, index) => (
             <StoryCard key={story.id} story={story} index={index} />
@@ -106,7 +104,7 @@ const ClientStories = () => {
 };
 
 /* ============================================
-   Story Card Component
+   Story Card
    ============================================ */
 const StoryCard = ({ story, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -125,11 +123,9 @@ const StoryCard = ({ story, index }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-
-      {/* ✅ IMAGE CONTAINER */}
       <div className="story-image-container">
 
-        {/* Result Badge */}
+        {/* Badge */}
         <motion.div
           className="story-result-badge"
           initial={{ opacity: 0, y: -10 }}
@@ -145,6 +141,7 @@ const StoryCard = ({ story, index }) => {
           src={story.beforeImage}
           alt={`${story.name} - Before`}
           className="story-img story-img-before"
+          loading="lazy"
           animate={{ opacity: isHovered ? 0 : 1 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         />
@@ -154,12 +151,13 @@ const StoryCard = ({ story, index }) => {
           src={story.afterImage}
           alt={`${story.name} - After`}
           className="story-img story-img-after"
+          loading="lazy"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         />
 
-        {/* BEFORE Label */}
+        {/* Labels */}
         <motion.div
           className="story-label story-label-before"
           animate={{ opacity: isHovered ? 0 : 1 }}
@@ -168,7 +166,6 @@ const StoryCard = ({ story, index }) => {
           BEFORE
         </motion.div>
 
-        {/* AFTER Label */}
         <motion.div
           className="story-label story-label-after"
           initial={{ opacity: 0 }}
@@ -178,32 +175,28 @@ const StoryCard = ({ story, index }) => {
           AFTER
         </motion.div>
 
-        {/* Dark Overlay */}
+        {/* Overlay */}
         <div className="story-image-overlay"></div>
 
-        {/* Hover Hint */}
+        {/* Hint */}
         <motion.div
           className="story-hover-hint"
           animate={{ opacity: isHovered ? 0 : 0.85 }}
           transition={{ duration: 0.3 }}
         >
-          👆 Hover to see After
+          👆 Hover
         </motion.div>
       </div>
 
-      {/* ✅ INFO */}
+      {/* Info */}
       <div className="story-info">
-
         <h3 className="story-name">{story.name}</h3>
-
         <p className="story-city">{story.city}</p>
-
         <p className="story-message">"{story.message}"</p>
 
         <div className="story-footer">
           <span className="story-duration">{story.duration}</span>
         </div>
-
       </div>
 
     </motion.div>
