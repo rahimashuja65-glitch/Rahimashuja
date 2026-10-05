@@ -1,0 +1,132 @@
+/* src/components/ClientStories.css */
+
+.cs-section {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 80px 40px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.cs-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.cs-subtitle {
+  font-size: 1rem;
+  color: #8a8a8a;
+  margin: 0 0 50px 0;
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cs-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #4ade80;
+  cursor: pointer;
+  background: #0a0a0a;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.cs-image-box:hover {
+  box-shadow: 0 20px 50px rgba(74, 222, 128, 0.4);
+  transform: translateY(-5px);
+}
+
+.cs-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.5s ease;
+  display: block;
+}
+
+.cs-img-abs {
+  z-index: 2;
+}
+
+.cs-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #4ade80;
+  color: #000;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  z-index: 3;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.5);
+}
+
+.cs-info {
+  text-align: center;
+}
+
+.cs-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.5px;
+}
+
+.cs-city {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+}
+
+.cs-result {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4ade80;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .cs-section {
+    padding: 60px 20px;
+  }
+
+  .cs-title {
+    font-size: 1.8rem;
+  }
+
+  .cs-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
