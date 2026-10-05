@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import "./ClientStories.css";
 
 const ClientStories = () => {
-  // ✅ Pakistani Names — Same City — Temporary Online Images
+  // ✅ Real-looking photos — screenshot jaisi style
   const storiesData = [
     {
       id: 1,
@@ -15,8 +15,10 @@ const ClientStories = () => {
       duration: "8 Months",
       message:
         "KINETIX changed my life completely. The trainers were patient and supportive — they treated me like family. I finally feel confident in my own skin.",
-      beforeImage: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80",
-      afterImage: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=600&q=80",
+      // Before — normal casual photo
+      beforeImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80",
+      // After — fit photo
+      afterImage: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80",
     },
     {
       id: 2,
@@ -26,7 +28,7 @@ const ClientStories = () => {
       duration: "10 Months",
       message:
         "From 115 KG to 80 KG — I never thought it was possible. The personalized diet plan and consistent training at KINETIX made all the difference.",
-      beforeImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&q=80",
       afterImage: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80",
     },
     {
@@ -37,7 +39,7 @@ const ClientStories = () => {
       duration: "14 Months",
       message:
         "At 45, I thought it was too late. KINETIX proved me wrong. I've never felt this energetic in my entire life. This gym is truly life-changing.",
-      beforeImage: "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80",
       afterImage: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80",
     },
     {
@@ -48,7 +50,7 @@ const ClientStories = () => {
       duration: "12 Months",
       message:
         "The trainers at KINETIX didn't just transform my body — they transformed my mindset. I owe everything to this community.",
-      beforeImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80",
+      beforeImage: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&q=80",
       afterImage: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80",
     },
   ];
