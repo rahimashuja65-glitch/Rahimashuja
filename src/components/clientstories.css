@@ -13,7 +13,7 @@
 }
 
 .clientstories-container {
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
    ============================================ */
 .clientstories-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .clientstories-subtitle {
@@ -32,7 +32,6 @@
   font-weight: 700;
   margin: 0 0 18px 0;
   text-transform: uppercase;
-  text-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
 }
 
 .clientstories-title {
@@ -54,28 +53,26 @@
 }
 
 /* ============================================
-   ✅ GRID — 4 CARDS IN ONE LINE
+   GRID — 2 CARDS
    ============================================ */
 .clientstories-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);       /* 4 equal columns */
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   align-items: stretch;
 }
 
 /* ============================================
-   ✅ STORY CARD
+   STORY CARD
    ============================================ */
 .story-card {
   display: flex;
   flex-direction: column;
   background: rgba(30, 30, 30, 0.6);
-  border: 1px solid rgba(74, 222, 128, 0.15);
-  border-radius: 14px;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 16px;
   overflow: hidden;
   transition: all 0.4s ease;
-  cursor: pointer;
-  height: 100%;                                 /* ✅ Full height */
 }
 
 .story-card:hover {
@@ -87,24 +84,24 @@
 }
 
 /* ============================================
-   ✅ IMAGE CONTAINER — FIXED SIZE
+   IMAGE CONTAINER
    ============================================ */
 .story-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;                          /* ✅ Fixed 3:4 portrait */
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: #0a0a0a;
+  cursor: pointer;
 }
 
-/* ✅ Both images — same size, fill container */
 .story-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;                            /* ✅ Crop to fit — no distortion */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -117,15 +114,15 @@
   z-index: 2;
 }
 
-/* Dark Overlay */
+/* Overlay */
 .story-image-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.4) 0%,
     transparent 30%,
-    transparent 60%,
+    transparent 65%,
     rgba(0, 0, 0, 0.8) 100%
   );
   pointer-events: none;
@@ -135,32 +132,32 @@
 /* Result Badge */
 .story-result-badge {
   position: absolute;
-  top: 12px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
   color: #0a0a0a;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  padding: 7px 14px;
-  border-radius: 18px;
-  letter-spacing: 0.8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   box-shadow: 0 4px 15px rgba(74, 222, 128, 0.5);
   z-index: 5;
   white-space: nowrap;
 }
 
-/* BEFORE/AFTER Labels */
+/* Labels */
 .story-label {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  font-size: 0.65rem;
+  bottom: 16px;
+  left: 16px;
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
-  padding: 5px 12px;
-  border-radius: 12px;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 15px;
   text-transform: uppercase;
   z-index: 5;
 }
@@ -180,9 +177,9 @@
 /* Hover Hint */
 .story-hover-hint {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  font-size: 0.65rem;
+  bottom: 16px;
+  right: 16px;
+  font-size: 0.68rem;
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -192,32 +189,27 @@
 }
 
 /* ============================================
-   ✅ INFO SECTION
+   INFO
    ============================================ */
 .story-info {
-  padding: 18px 16px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   flex: 1;
 }
 
 .story-name {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.5px;
   margin: 0;
   text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.story-card:hover .story-name {
-  color: #4ade80;
 }
 
 .story-city {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #4ade80;
   letter-spacing: 1px;
@@ -227,23 +219,23 @@
 }
 
 .story-message {
-  font-size: 0.78rem;
-  line-height: 1.55;
+  font-size: 0.88rem;
+  line-height: 1.65;
   color: #a0a0a0;
   font-style: italic;
-  margin: 6px 0 0 0;
-  padding-left: 10px;
+  margin: 8px 0 0 0;
+  padding-left: 12px;
   border-left: 2px solid rgba(74, 222, 128, 0.4);
 }
 
 .story-footer {
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 14px;
   border-top: 1px solid rgba(74, 222, 128, 0.1);
 }
 
 .story-duration {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #4ade80;
   letter-spacing: 0.8px;
@@ -253,10 +245,14 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
+  .clientstories-section {
+    padding: 80px 30px;
+  }
+
   .clientstories-grid {
-    grid-template-columns: repeat(2, 1fr);       /* 2 columns */
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .clientstories-title {
@@ -264,19 +260,13 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .clientstories-section {
     padding: 60px 20px;
   }
 
-  .clientstories-grid {
-    grid-template-columns: 1fr;                   /* 1 column */
-    gap: 24px;
-  }
-
   .clientstories-title {
-    font-size: 1.7rem;
-    letter-spacing: -1px;
+    font-size: 1.8rem;
   }
 
   .clientstories-header {
