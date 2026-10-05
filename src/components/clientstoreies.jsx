@@ -1,50 +1,55 @@
 // src/components/ClientStories.jsx
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import "./ClientStories.css";
 
 const ClientStories = () => {
+  // ✅ Pakistani Names — Same City — Temporary Online Images
   const storiesData = [
     {
       id: 1,
-      name: "HEIDI BOUND",
-      result: "LOST 50 POUNDS",
-      duration: "6 MONTHS",
+      name: "Ayesha Khan",
+      city: "Gujranwala",
+      result: "Lost 25 KG",
+      duration: "8 Months",
       message:
-        "I never thought I could feel this good about myself. The trainers at KINETIX believed in me when I didn't believe in myself. This is more than a gym — it's family.",
-      beforeImage: "/assets/heidi-before.jpg",
-      afterImage: "/assets/heidi-after.jpg",
+        "KINETIX changed my life completely. The trainers were patient and supportive — they treated me like family. I finally feel confident in my own skin.",
+      beforeImage: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80",
+      afterImage: "https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=600&q=80",
     },
     {
       id: 2,
-      name: "ALAN",
-      result: "LOST 90 POUNDS",
-      duration: "10 MONTHS",
+      name: "Bilal Ahmed",
+      city: "Gujranwala",
+      result: "Lost 35 KG",
+      duration: "10 Months",
       message:
-        "The personalized plan made all the difference. Every workout was tailored to my body and goals. I finally have the energy to keep up with my kids.",
-      beforeImage: "/assets/alan-before.jpg",
-      afterImage: "/assets/alan-after.jpg",
+        "From 115 KG to 80 KG — I never thought it was possible. The personalized diet plan and consistent training at KINETIX made all the difference.",
+      beforeImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
+      afterImage: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80",
     },
     {
       id: 3,
-      name: "JOHN PIKE",
-      result: "LOST 120 POUNDS",
-      duration: "14 MONTHS",
+      name: "Hassan Raza",
+      city: "Gujranwala",
+      result: "Lost 45 KG",
+      duration: "14 Months",
       message:
-        "At 52, I thought it was too late. KINETIX proved me wrong. The community, the coaching, the support — everything combined to change my life completely.",
-      beforeImage: "/assets/john-before.jpg",
-      afterImage: "/assets/john-after.jpg",
+        "At 45, I thought it was too late. KINETIX proved me wrong. I've never felt this energetic in my entire life. This gym is truly life-changing.",
+      beforeImage: "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=600&q=80",
+      afterImage: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80",
     },
     {
       id: 4,
-      name: "EVAN",
-      result: "LOST 110 POUNDS",
-      duration: "12 MONTHS",
+      name: "Usman Tariq",
+      city: "Gujranwala",
+      result: "Lost 30 KG",
+      duration: "12 Months",
       message:
-        "From barely walking a mile to running 5Ks — this journey has been incredible. The KINETIX trainers didn't just transform my body, they transformed my mindset.",
-      beforeImage: "/assets/evan-before.jpg",
-      afterImage: "/assets/evan-after.jpg",
+        "The trainers at KINETIX didn't just transform my body — they transformed my mindset. I owe everything to this community.",
+      beforeImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80",
+      afterImage: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80",
     },
   ];
 
@@ -81,19 +86,15 @@ const ClientStories = () => {
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.9, delay: 0.25 }}
           >
-            Real people, real results. Discover how our members transformed
-            their lives at KINETIX through dedication and expert guidance.
+            Real people, real results. Hover on each photo to see their
+            before and after transformation.
           </motion.p>
         </div>
 
         {/* ============ STORIES GRID ============ */}
         <div className="clientstories-grid">
           {storiesData.map((story, index) => (
-            <StoryCard
-              key={story.id}
-              story={story}
-              index={index}
-            />
+            <StoryCard key={story.id} story={story} index={index} />
           ))}
         </div>
 
@@ -106,108 +107,102 @@ const ClientStories = () => {
    Story Card Component
    ============================================ */
 const StoryCard = ({ story, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       className="story-card"
-      initial={{ opacity: 0, y: 80 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{
-        duration: 0.9,
-        delay: index * 0.15,
+        duration: 0.8,
+        delay: index * 0.12,
         ease: "easeOut",
       }}
-      whileHover={{
-        y: -10,
-        transition: { duration: 0.4, ease: "easeOut" },
-      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* ✅ Result Badge (Top) */}
-      <motion.div
-        className="story-badge"
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{
-          duration: 0.5,
-          delay: index * 0.15 + 0.4,
-          ease: "easeOut",
-        }}
-      >
-        ✅ {story.result}
-      </motion.div>
 
-      {/* ✅ Before/After Images */}
-      <div className="story-images">
+      {/* ✅ IMAGE CONTAINER */}
+      <div className="story-image-container">
+
+        {/* Result Badge */}
+        <motion.div
+          className="story-result-badge"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: index * 0.12 + 0.3 }}
+        >
+          ✅ {story.result}
+        </motion.div>
 
         {/* Before Image */}
-        <motion.div
-          className="story-image-wrapper"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{
-            duration: 0.8,
-            delay: index * 0.15 + 0.2,
-            ease: "easeOut",
-          }}
-          whileHover={{ scale: 1.03 }}
-        >
-          <img
-            src={story.beforeImage}
-            alt={`${story.name} - Before`}
-            className="story-image"
-          />
-          <div className="story-image-label before-label">BEFORE</div>
-          <div className="story-image-overlay"></div>
-        </motion.div>
+        <motion.img
+          src={story.beforeImage}
+          alt={`${story.name} - Before`}
+          className="story-img story-img-before"
+          animate={{ opacity: isHovered ? 0 : 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        />
 
         {/* After Image */}
+        <motion.img
+          src={story.afterImage}
+          alt={`${story.name} - After`}
+          className="story-img story-img-after"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        />
+
+        {/* BEFORE Label */}
         <motion.div
-          className="story-image-wrapper"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{
-            duration: 0.8,
-            delay: index * 0.15 + 0.3,
-            ease: "easeOut",
-          }}
-          whileHover={{ scale: 1.03 }}
+          className="story-label story-label-before"
+          animate={{ opacity: isHovered ? 0 : 1 }}
+          transition={{ duration: 0.3 }}
         >
-          <img
-            src={story.afterImage}
-            alt={`${story.name} - After`}
-            className="story-image"
-          />
-          <div className="story-image-label after-label">AFTER</div>
-          <div className="story-image-overlay"></div>
+          BEFORE
         </motion.div>
 
+        {/* AFTER Label */}
+        <motion.div
+          className="story-label story-label-after"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          AFTER
+        </motion.div>
+
+        {/* Dark Overlay */}
+        <div className="story-image-overlay"></div>
+
+        {/* Hover Hint */}
+        <motion.div
+          className="story-hover-hint"
+          animate={{ opacity: isHovered ? 0 : 0.85 }}
+          transition={{ duration: 0.3 }}
+        >
+          👆 Hover to see After
+        </motion.div>
       </div>
 
-      {/* ✅ Client Message */}
-      <motion.div
-        className="story-message-box"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{
-          duration: 0.8,
-          delay: index * 0.15 + 0.5,
-          ease: "easeOut",
-        }}
-      >
-        {/* Quote Icon */}
-        <div className="story-quote-icon">"</div>
+      {/* ✅ INFO */}
+      <div className="story-info">
 
-        <p className="story-message">{story.message}</p>
+        <h3 className="story-name">{story.name}</h3>
 
-        <div className="story-message-footer">
-          <span className="story-author">— {story.name}</span>
-          <span className="story-duration">({story.duration})</span>
+        <p className="story-city">{story.city}</p>
+
+        <p className="story-message">"{story.message}"</p>
+
+        <div className="story-footer">
+          <span className="story-duration">{story.duration}</span>
         </div>
-      </motion.div>
+
+      </div>
 
     </motion.div>
   );

@@ -7,6 +7,7 @@ import Features from '../components/Features';
 import FAQ from '../components/FAQ';
 import Exercises from '../components/Exercises';
 import AboutFAQ from '../components/AbouFAQ';
+import ClientStories from '../components/clientstoreies';
 function Home() {
   return (
     <div style={{ background: '#fefdfd', minHeight: '100vh' }}>
@@ -19,6 +20,8 @@ function Home() {
      <Exercises />
       <Features />
      <AboutFAQ />
+     <Contact />
+     <ClientStories />
            </div>
            
   );
