@@ -13,7 +13,7 @@
 }
 
 .clientstories-container {
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -22,59 +22,60 @@
    ============================================ */
 .clientstories-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 }
 
 .clientstories-subtitle {
   color: #4ade80;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 5px;
   font-weight: 700;
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(74, 222, 128, 0.4);
 }
 
 .clientstories-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -1.5px;
   color: #ffffff;
-  margin: 0 0 25px 0;
+  margin: 0 0 20px 0;
   text-transform: uppercase;
 }
 
 .clientstories-description {
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.7;
   color: #9a9a9a;
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
 /* ============================================
-   GRID — 4 CARDS IN ONE ROW
+   ✅ GRID — 4 CARDS IN ONE LINE
    ============================================ */
 .clientstories-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);       /* 4 equal columns */
+  gap: 20px;
   align-items: stretch;
 }
 
 /* ============================================
-   STORY CARD
+   ✅ STORY CARD
    ============================================ */
 .story-card {
   display: flex;
   flex-direction: column;
   background: rgba(30, 30, 30, 0.6);
   border: 1px solid rgba(74, 222, 128, 0.15);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   transition: all 0.4s ease;
   cursor: pointer;
+  height: 100%;                                 /* ✅ Full height */
 }
 
 .story-card:hover {
@@ -86,23 +87,25 @@
 }
 
 /* ============================================
-   IMAGE CONTAINER
+   ✅ IMAGE CONTAINER — FIXED SIZE
    ============================================ */
 .story-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4;                          /* ✅ Fixed 3:4 portrait */
   overflow: hidden;
   background: #0a0a0a;
 }
 
+/* ✅ Both images — same size, fill container */
 .story-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;                            /* ✅ Crop to fit — no distortion */
+  object-position: center;
   display: block;
 }
 
@@ -120,10 +123,10 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.5) 0%,
     transparent 30%,
     transparent 60%,
-    rgba(0, 0, 0, 0.75) 100%
+    rgba(0, 0, 0, 0.8) 100%
   );
   pointer-events: none;
   z-index: 3;
@@ -132,32 +135,32 @@
 /* Result Badge */
 .story-result-badge {
   position: absolute;
-  top: 14px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
   color: #0a0a0a;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  padding: 8px 16px;
-  border-radius: 20px;
-  letter-spacing: 1px;
+  padding: 7px 14px;
+  border-radius: 18px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   box-shadow: 0 4px 15px rgba(74, 222, 128, 0.5);
   z-index: 5;
   white-space: nowrap;
 }
 
-/* Labels */
+/* BEFORE/AFTER Labels */
 .story-label {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  font-size: 0.7rem;
+  bottom: 12px;
+  left: 12px;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  padding: 6px 14px;
-  border-radius: 15px;
+  letter-spacing: 1.2px;
+  padding: 5px 12px;
+  border-radius: 12px;
   text-transform: uppercase;
   z-index: 5;
 }
@@ -177,9 +180,9 @@
 /* Hover Hint */
 .story-hover-hint {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
-  font-size: 0.7rem;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.65rem;
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -189,18 +192,18 @@
 }
 
 /* ============================================
-   INFO SECTION
+   ✅ INFO SECTION
    ============================================ */
 .story-info {
-  padding: 22px 20px;
+  padding: 18px 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   flex: 1;
 }
 
 .story-name {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.5px;
@@ -214,7 +217,7 @@
 }
 
 .story-city {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #4ade80;
   letter-spacing: 1px;
@@ -224,26 +227,23 @@
 }
 
 .story-message {
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.78rem;
+  line-height: 1.55;
   color: #a0a0a0;
   font-style: italic;
-  margin: 8px 0 0 0;
-  padding-left: 12px;
+  margin: 6px 0 0 0;
+  padding-left: 10px;
   border-left: 2px solid rgba(74, 222, 128, 0.4);
 }
 
 .story-footer {
   margin-top: auto;
-  padding-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid rgba(74, 222, 128, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .story-duration {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #4ade80;
   letter-spacing: 0.8px;
@@ -255,12 +255,12 @@
    ============================================ */
 @media (max-width: 1200px) {
   .clientstories-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);       /* 2 columns */
+    gap: 20px;
   }
 
   .clientstories-title {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -270,32 +270,16 @@
   }
 
   .clientstories-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: 1fr;                   /* 1 column */
+    gap: 24px;
   }
 
   .clientstories-title {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     letter-spacing: -1px;
   }
 
-  .clientstories-description {
-    font-size: 0.95rem;
-  }
-
   .clientstories-header {
-    margin-bottom: 50px;
-  }
-
-  .story-info {
-    padding: 18px 16px;
-  }
-
-  .story-name {
-    font-size: 1rem;
-  }
-
-  .story-message {
-    font-size: 0.8rem;
+    margin-bottom: 40px;
   }
 }
