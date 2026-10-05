@@ -7,7 +7,7 @@ import Features from '../components/Features';
 import FAQ from '../components/FAQ';
 import Exercises from '../components/Exercises';
 import AboutFAQ from '../components/AbouFAQ';
-import ClientStories from '../components/clientstoreies';
+import ClientStories from '../components/Clientstoreies';
 function Home() {
   return (
     <div style={{ background: '#fefdfd', minHeight: '100vh' }}>
