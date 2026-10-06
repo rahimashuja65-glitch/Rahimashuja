@@ -27,30 +27,33 @@
 }
 
 /* ============================================
-   GRID — 2 CARDS
+   ✅ GRID — 5 CARDS IN ONE ROW (Fixed)
    ============================================ */
 .cs-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 900px;
+  grid-template-columns: repeat(5, 1fr);    /* ✅ 5 fixed columns */
+  gap: 20px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
+/* ============================================
+   CARD
+   ============================================ */
 .cs-card {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 /* ============================================
-   IMAGE BOX — Fixed Size + Hover Swap
+   ✅ IMAGE BOX — Chhota + Fixed
    ============================================ */
 .cs-image-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 16px;
+  aspect-ratio: 3 / 4;                       /* ✅ Portrait ratio */
+  border-radius: 12px;
   overflow: hidden;
   border: 2px solid #4ade80;
   cursor: pointer;
@@ -59,11 +62,11 @@
 }
 
 .cs-image-box:hover {
-  box-shadow: 0 20px 50px rgba(74, 222, 128, 0.4);
+  box-shadow: 0 15px 40px rgba(74, 222, 128, 0.4);
   transform: translateY(-5px);
 }
 
-/* Both Images */
+/* ✅ Both Images — Fill Container */
 .cs-img {
   position: absolute;
   top: 0;
@@ -80,50 +83,51 @@
   z-index: 2;
 }
 
-/* BEFORE / AFTER Label */
+/* Label */
 .cs-label {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 10px;
+  left: 10px;
   background: #4ade80;
   color: #000;
-  padding: 7px 16px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   z-index: 3;
-  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.5);
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.5);
 }
 
 /* ============================================
-   INFO — Name + Result + Message
+   ✅ INFO — Chhota Font
    ============================================ */
 .cs-info {
   text-align: center;
-  padding: 0 5px;
+  padding: 0 4px;
 }
 
 .cs-name {
-  font-size: 1.3rem;
+  font-size: 0.95rem;                        /* ✅ Chhota */
   font-weight: 800;
   color: #fff;
   text-transform: uppercase;
-  margin: 0 0 6px 0;
-  letter-spacing: 0.5px;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
 }
 
 .cs-result {
-  font-size: 1rem;
+  font-size: 0.82rem;                        /* ✅ Chhota */
   font-weight: 700;
   color: #4ade80;
-  margin: 0 0 10px 0;
-  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.4px;
 }
 
 .cs-message {
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.72rem;                        /* ✅ Chhota */
+  line-height: 1.5;
   color: #a0a0a0;
   font-style: italic;
   margin: 0;
@@ -132,17 +136,51 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 700px) {
+
+/* Tablet — 3 columns */
+@media (max-width: 1100px) {
+  .cs-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Small Tablet — 2 columns */
+@media (max-width: 800px) {
+  .cs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .cs-title {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile — 1 column */
+@media (max-width: 550px) {
   .cs-section {
     padding: 60px 20px;
   }
 
-  .cs-title {
-    font-size: 1.8rem;
-  }
-
   .cs-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
+  }
+
+  .cs-title {
+    font-size: 1.6rem;
+  }
+
+  .cs-name {
+    font-size: 1rem;
+  }
+
+  .cs-result {
+    font-size: 0.85rem;
+  }
+
+  .cs-message {
+    font-size: 0.8rem;
   }
 }

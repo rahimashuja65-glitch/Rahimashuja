@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./ClientStories.css";
 
 const ClientStories = () => {
+  // ✅ Saare 5 Clients — Ek Array Mein
   const clients = [
     {
       name: "Ayesha Khan",
@@ -19,6 +20,27 @@ const ClientStories = () => {
       before: "/assets/billalahmed.png",
       after: "/assets/billalahmedafter.png",
     },
+    {
+      name: "Hamza",
+      result: "Lost 20 KG",
+      message: "Best gym in town! The environment keeps you motivated.",
+      before: "/assets/hamza.png",
+      after: "/assets/hamzaafter.png",
+    },
+    {
+      name: "Ali",
+      result: "Lost 30 KG",
+      message: "I feel stronger and healthier than ever before.",
+      before: "/assets/ali.png",
+      after: "/assets/aliafter.png",
+    },
+    {
+      name: "Zani",
+      result: "Lost 15 KG",
+      message: "Amazing experience! The trainers really know their stuff.",
+      before: "/assets/zani.png",
+      after: "/assets/zaniafter.png",
+    },
   ];
 
   return (
@@ -26,15 +48,19 @@ const ClientStories = () => {
       <h2 className="cs-title">See Their Transformations</h2>
       <p className="cs-subtitle">Hover on each photo to see the before & after</p>
 
+      {/* ✅ Loop — Saare Clients Render */}
       <div className="cs-grid">
-        {clients.map((client, i) => (
-          <ClientCard key={i} client={client} />
+        {clients.map((client, index) => (
+          <ClientCard key={index} client={client} />
         ))}
       </div>
     </section>
   );
 };
 
+/* ============================================
+   Client Card Component
+   ============================================ */
 const ClientCard = ({ client }) => {
   const [hover, setHover] = useState(false);
 
@@ -65,7 +91,6 @@ const ClientCard = ({ client }) => {
         <span className="cs-label">{hover ? "AFTER" : "BEFORE"}</span>
       </div>
 
-      {/* Client Info */}
       <div className="cs-info">
         <h3 className="cs-name">{client.name}</h3>
         <p className="cs-result">✅ {client.result}</p>
