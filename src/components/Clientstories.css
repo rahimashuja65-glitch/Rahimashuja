@@ -18,6 +18,9 @@
 .cs-header {
   text-align: center;
   margin-bottom: 60px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cs-eyebrow {
@@ -54,11 +57,11 @@
 }
 
 /* ============================================
-   GRID — 5 CARDS
+   ✅ GRID — 5 CARDS EK ROW MEIN
    ============================================ */
 .cs-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);      /* ✅ 5 equal columns */
   gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
@@ -86,7 +89,7 @@
 .cs-image-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4;                        /* ✅ Portrait */
   border-radius: 14px;
   overflow: hidden;
   background: #0a0a0a;
@@ -99,6 +102,7 @@
   box-shadow: 0 15px 40px rgba(74, 222, 128, 0.3);
 }
 
+/* Both Images */
 .cs-img {
   position: absolute;
   top: 0;
@@ -109,12 +113,14 @@
   object-position: center;
   display: block;
   z-index: 1;
+  transition: opacity 0.5s ease;
 }
 
 .cs-img-abs {
   z-index: 2;
 }
 
+/* Overlay */
 .cs-overlay {
   position: absolute;
   inset: 0;
@@ -205,6 +211,8 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* Tablet — 3 columns */
 @media (max-width: 1100px) {
   .cs-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -216,6 +224,7 @@
   }
 }
 
+/* Small Tablet — 2 columns */
 @media (max-width: 800px) {
   .cs-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -232,6 +241,7 @@
   }
 }
 
+/* Mobile — 1 column */
 @media (max-width: 550px) {
   .cs-section {
     padding: 60px 20px;

@@ -52,10 +52,10 @@ const ClientStories = () => {
         <h2 className="cs-title">
           See Their <span className="cs-title-highlight">Transformations</span>
         </h2>
-        <p className="cs-subtitle">Hover on each photo to see the before & after</p>
+        <p className="cs-subtitle">Hover on each photo to see before & after</p>
       </div>
 
-      {/* Grid */}
+      {/* ✅ 5 Cards Ek Row Mein */}
       <div className="cs-grid">
         {clients.map((client, index) => (
           <ClientCard key={index} client={client} index={index} />
@@ -75,12 +75,12 @@ const ClientCard = ({ client, index }) => {
   return (
     <motion.div
       className="cs-card"
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{
-        duration: 0.8,
-        delay: index * 0.12,
+        duration: 0.6,
+        delay: index * 0.1,
         ease: "easeOut",
       }}
       onMouseEnter={() => setHover(true)}
@@ -89,39 +89,26 @@ const ClientCard = ({ client, index }) => {
       {/* Image Box */}
       <div className="cs-image-box">
 
-        {/* Before */}
-        <motion.img
+        {/* Before Image */}
+        <img
           src={client.before}
           alt={`${client.name} - Before`}
           className="cs-img"
-          animate={{
-            opacity: hover ? 0 : 1,
-            scale: hover ? 1.08 : 1,
-          }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          style={{ opacity: hover ? 0 : 1 }}
         />
 
-        {/* After */}
-        <motion.img
+        {/* After Image */}
+        <img
           src={client.after}
           alt={`${client.name} - After`}
           className="cs-img cs-img-abs"
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: hover ? 1 : 0,
-            scale: hover ? 1 : 1.08,
-          }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          style={{ opacity: hover ? 1 : 0 }}
         />
 
-        {/* Label */}
-        <motion.span
-          className={`cs-label ${hover ? "cs-label-after" : ""}`}
-          animate={{ scale: hover ? 1.08 : 1 }}
-          transition={{ duration: 0.3 }}
-        >
+        {/* BEFORE / AFTER Label */}
+        <span className={`cs-label ${hover ? "cs-label-after" : ""}`}>
           {hover ? "AFTER" : "BEFORE"}
-        </motion.span>
+        </span>
 
         {/* Result Badge */}
         <span className="cs-result-badge">✅ {client.result}</span>
