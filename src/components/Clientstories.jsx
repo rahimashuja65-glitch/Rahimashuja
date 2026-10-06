@@ -7,15 +7,15 @@ const ClientStories = () => {
   const clients = [
     {
       name: "Ayesha Khan",
-      city: "Gujranwala",
       result: "Lost 25 KG",
+      message: "KINETIX changed my life completely. Best decision ever!",
       before: "/assets/ayesha.png",
       after: "/assets/ayeshaafter.png",
     },
     {
       name: "Bilal Ahmed",
-      city: "Gujranwala",
       result: "Lost 35 KG",
+      message: "The trainers here are amazing. They truly care about you.",
       before: "/assets/billalahmed.png",
       after: "/assets/billalahmedafter.png",
     },
@@ -48,7 +48,7 @@ const ClientCard = ({ client }) => {
         {/* Before Image */}
         <img
           src={client.before}
-          alt={client.name}
+          alt={`${client.name} - Before`}
           className="cs-img"
           style={{ opacity: hover ? 0 : 1 }}
         />
@@ -56,7 +56,7 @@ const ClientCard = ({ client }) => {
         {/* After Image */}
         <img
           src={client.after}
-          alt={client.name}
+          alt={`${client.name} - After`}
           className="cs-img cs-img-abs"
           style={{ opacity: hover ? 1 : 0 }}
         />
@@ -65,10 +65,11 @@ const ClientCard = ({ client }) => {
         <span className="cs-label">{hover ? "AFTER" : "BEFORE"}</span>
       </div>
 
+      {/* Client Info */}
       <div className="cs-info">
         <h3 className="cs-name">{client.name}</h3>
-        <p className="cs-city">{client.city}</p>
         <p className="cs-result">✅ {client.result}</p>
+        <p className="cs-message">"{client.message}"</p>
       </div>
     </div>
   );
