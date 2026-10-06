@@ -46,7 +46,7 @@ const ClientStories = () => {
   return (
     <section className="cs-section">
       <h2 className="cs-title">See Their Transformations</h2>
-      <p className="cs-subtitle">Hover on each photo to see the before & after</p>
+      <p className="cs-subtitle">Real people. Real results. Real transformations.</p>
 
       {/* ✅ Loop — Saare Clients Render */}
       <div className="cs-grid">
